@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tiếng Anh 1 · Global Success</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#16324A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tiếng Anh 1">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 <meta name="description" content="Bài giảng tương tác, trò chơi luyện nghe và phiếu bài tập Tiếng Anh lớp 1 – Global Success.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2716%27 fill=%27%23F5B828%27/%3E%3Ctext x=%2732%27 y=%2745%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2736%27 text-anchor=%27middle%27 fill=%27%2316324A%27%3EAa%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,6 +49,13 @@ h1 span{color:var(--sky);font-size:.55em;display:block}
 .tabs button[aria-selected="true"]{background:var(--ink);color:var(--bg)}
 .tabs button small{font-weight:500;opacity:.7;margin-left:4px}
 .hint{margin-left:auto;font-size:14px;color:var(--muted)}
+.inst{font:inherit;font-weight:600;font-size:14px;border:0;background:var(--sun);color:#16324A;border-radius:999px;padding:8px 16px;cursor:pointer}
+.dl{font:inherit;font-size:13px;font-weight:600;padding:5px 10px;border-radius:9px;border:1.5px dashed var(--line);background:transparent;color:var(--ink);cursor:pointer}
+.dl.ok{border-style:solid;border-color:#4E9A3A;color:#3E7F2C}
+.sheet{position:fixed;inset:auto 0 0 0;z-index:20;background:var(--paper);border-top:1px solid var(--line);border-radius:20px 20px 0 0;box-shadow:0 -12px 30px rgba(22,50,74,.18);padding:18px max(18px,env(safe-area-inset-left)) calc(18px + env(safe-area-inset-bottom,0px))}
+.sheet h3{font-size:22px;margin-bottom:8px}
+.sheet ol{margin:0 0 12px;padding-left:1.3em;line-height:1.7}
+.sheet button{font:inherit;font-weight:600;border:0;background:var(--ink);color:var(--bg);border-radius:999px;padding:9px 20px;cursor:pointer}
 .hint a{font-weight:600;color:var(--sky);text-decoration:none}
 
 .block{margin:26px 0 8px}
@@ -103,7 +118,7 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-block:20px 36px;
       <h1>Tiếng Anh 1<span>Global Success</span></h1>
       <p class="lead">16 bài, mỗi bài gồm 3 tiết dạy trên lớp, trò chơi luyện nghe cho con ở nhà và phiếu bài tập in ra giấy.</p>
     </div>
-    <nav class="idx" aria-label="Mục lục theo chữ cái"><a class="t" href="#u1" data-n="1" style="--c:#FBD34D" title="Unit 1 · In the school playground">Bb<small>1</small></a><a class="t" href="#u2" data-n="2" style="--c:#F7B3D6" title="Unit 2 · In the dining room">Cc<small>2</small></a><a class="t" href="#u3" data-n="3" style="--c:#9FE3D0" title="Unit 3 · At the street market">Aa<small>3</small></a><a class="t" href="#u4" data-n="4" style="--c:#D6C4FA" title="Unit 4 · In the bedroom">Dd<small>4</small></a><a class="t" href="#u5" data-n="5" style="--c:#FDBA74" title="Unit 5 · At the fish and chip shop">Ii<small>5</small></a><a class="t off" href="#u6" data-n="6" style="--c:#A5D8FF" title="Unit 6 · In the classroom">Ee<small>6</small></a><a class="t off" href="#u7" data-n="7" style="--c:#B9E4A8" title="Unit 7 · In the garden">Gg<small>7</small></a><a class="t off" href="#u8" data-n="8" style="--c:#FFC9C9" title="Unit 8 · In the park">Hh<small>8</small></a><a class="t off" href="#u9" data-n="9" style="--c:#FBD34D" title="Unit 9 · In the shop">Oo<small>9</small></a><a class="t off" href="#u10" data-n="10" style="--c:#F7B3D6" title="Unit 10 · At the zoo">Mm<small>10</small></a><a class="t off" href="#u11" data-n="11" style="--c:#9FE3D0" title="Unit 11 · At the bus stop">Uu<small>11</small></a><a class="t off" href="#u12" data-n="12" style="--c:#D6C4FA" title="Unit 12 · At the lake">Ll<small>12</small></a><a class="t off" href="#u13" data-n="13" style="--c:#FDBA74" title="Unit 13 · In the school canteen">Nn<small>13</small></a><a class="t off" href="#u14" data-n="14" style="--c:#A5D8FF" title="Unit 14 · In the toy shop">Tt<small>14</small></a><a class="t off" href="#u15" data-n="15" style="--c:#B9E4A8" title="Unit 15 · At the football match">Ff<small>15</small></a><a class="t off" href="#u16" data-n="16" style="--c:#FFC9C9" title="Unit 16 · At home">Ww<small>16</small></a><span class="legend">Bấm chữ cái để tới bài. Ô viền nét đứt là bài sắp có.</span></nav>
+    <nav class="idx" aria-label="Mục lục theo chữ cái"><a class="t" href="#u1" data-n="1" style="--c:#FBD34D" title="Unit 1 · In the school playground">Bb<small>1</small></a><a class="t" href="#u2" data-n="2" style="--c:#F7B3D6" title="Unit 2 · In the dining room">Cc<small>2</small></a><a class="t" href="#u3" data-n="3" style="--c:#9FE3D0" title="Unit 3 · At the street market">Aa<small>3</small></a><a class="t" href="#u4" data-n="4" style="--c:#D6C4FA" title="Unit 4 · In the bedroom">Dd<small>4</small></a><a class="t" href="#u5" data-n="5" style="--c:#FDBA74" title="Unit 5 · At the fish and chip shop">Ii<small>5</small></a><a class="t" href="#u6" data-n="6" style="--c:#A5D8FF" title="Unit 6 · In the classroom">Ee<small>6</small></a><a class="t" href="#u7" data-n="7" style="--c:#B9E4A8" title="Unit 7 · In the garden">Gg<small>7</small></a><a class="t" href="#u8" data-n="8" style="--c:#FFC9C9" title="Unit 8 · In the park">Hh<small>8</small></a><a class="t" href="#u9" data-n="9" style="--c:#FBD34D" title="Unit 9 · In the shop">Oo<small>9</small></a><a class="t off" href="#u10" data-n="10" style="--c:#F7B3D6" title="Unit 10 · At the zoo">Mm<small>10</small></a><a class="t off" href="#u11" data-n="11" style="--c:#9FE3D0" title="Unit 11 · At the bus stop">Uu<small>11</small></a><a class="t off" href="#u12" data-n="12" style="--c:#D6C4FA" title="Unit 12 · At the lake">Ll<small>12</small></a><a class="t off" href="#u13" data-n="13" style="--c:#FDBA74" title="Unit 13 · In the school canteen">Nn<small>13</small></a><a class="t off" href="#u14" data-n="14" style="--c:#A5D8FF" title="Unit 14 · In the toy shop">Tt<small>14</small></a><a class="t off" href="#u15" data-n="15" style="--c:#B9E4A8" title="Unit 15 · At the football match">Ff<small>15</small></a><a class="t off" href="#u16" data-n="16" style="--c:#FFC9C9" title="Unit 16 · At home">Ww<small>16</small></a><span class="legend">Bấm chữ cái để tới bài. Ô viền nét đứt là bài sắp có.</span></nav>
   </div>
 </header>
 
@@ -112,7 +127,8 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-block:20px 36px;
     <button role="tab" data-t="hk1" aria-selected="true">Học kỳ 1 <small>Unit 1–8</small></button>
     <button role="tab" data-t="hk2" aria-selected="false">Học kỳ 2 <small>Unit 9–16</small></button>
   </div>
-  <span class="hint">Mới nhất: <a href="unit-5.html">Unit 5 · At the fish and chip shop</a></span>
+  <button class="inst" id="instBtn" type="button" hidden>Cài app vào điện thoại</button>
+  <span class="hint">Mới nhất: <a href="unit-9.html">Unit 9 · In the shop</a></span>
 </div></div>
 
 <main class="wrap">
@@ -123,6 +139,7 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-block:20px 36px;
   <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
     <div class="grp"><span>Bài giảng</span><a href="unit-1.html#tiet1">Tiết 1</a><a href="unit-1.html#tiet2">Tiết 2</a><a href="unit-1.html#tiet3">Tiết 3</a><a href="unit-1.html#luyennghe">Luyện nghe</a></div>
     <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-1/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-1/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-1/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-1/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="1" type="button">Tải bài về máy</button></div>
   </div></details>
 </article><article class="u" id="u2" style="--c:#F7B3D6">
   <a class="main" href="unit-2.html"><span class="thumb"><img src="images/unit-2.webp" alt="" loading="lazy"><span class="L">Cc</span></span>
@@ -130,6 +147,7 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-block:20px 36px;
   <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
     <div class="grp"><span>Bài giảng</span><a href="unit-2.html#tiet1">Tiết 1</a><a href="unit-2.html#tiet2">Tiết 2</a><a href="unit-2.html#tiet3">Tiết 3</a><a href="unit-2.html#luyennghe">Luyện nghe</a></div>
     <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-2/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-2/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-2/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-2/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="2" type="button">Tải bài về máy</button></div>
   </div></details>
 </article><article class="u" id="u3" style="--c:#9FE3D0">
   <a class="main" href="unit-3.html"><span class="thumb"><img src="images/unit-3.webp" alt="" loading="lazy"><span class="L">Aa</span></span>
@@ -137,6 +155,7 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-block:20px 36px;
   <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
     <div class="grp"><span>Bài giảng</span><a href="unit-3.html#tiet1">Tiết 1</a><a href="unit-3.html#tiet2">Tiết 2</a><a href="unit-3.html#tiet3">Tiết 3</a><a href="unit-3.html#luyennghe">Luyện nghe</a></div>
     <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-3/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-3/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-3/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-3/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="3" type="button">Tải bài về máy</button></div>
   </div></details>
 </article><article class="u" id="u4" style="--c:#D6C4FA">
   <a class="main" href="unit-4.html"><span class="thumb"><img src="images/unit-4.webp" alt="" loading="lazy"><span class="L">Dd</span></span>
@@ -144,18 +163,52 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-block:20px 36px;
   <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
     <div class="grp"><span>Bài giảng</span><a href="unit-4.html#tiet1">Tiết 1</a><a href="unit-4.html#tiet2">Tiết 2</a><a href="unit-4.html#tiet3">Tiết 3</a><a href="unit-4.html#luyennghe">Luyện nghe</a></div>
     <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-4/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-4/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-4/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-4/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="4" type="button">Tải bài về máy</button></div>
   </div></details>
-</article></div></div><div class="block"><div class="bh"><h2>Unit 5–8</h2><span class="rv">ôn tập: Review 2</span><span class="cnt">1/4 bài đã có</span></div>
+</article></div></div><div class="block"><div class="bh"><h2>Unit 5–8</h2><span class="rv">ôn tập: Review 2</span><span class="cnt">4/4 bài đã có</span></div>
 <div class="grid"><article class="u" id="u5" style="--c:#FDBA74">
   <a class="main" href="unit-5.html"><span class="thumb"><img src="images/unit-5.webp" alt="" loading="lazy"><span class="L">Ii</span></span>
   <span class="info"><span class="no">Unit 5</span><h3>At the fish and chip shop</h3><span class="w">chicken · chips · fish · milk</span><span class="p">I like milk.</span></span></a>
   <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
     <div class="grp"><span>Bài giảng</span><a href="unit-5.html#tiet1">Tiết 1</a><a href="unit-5.html#tiet2">Tiết 2</a><a href="unit-5.html#tiet3">Tiết 3</a><a href="unit-5.html#luyennghe">Luyện nghe</a></div>
     <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-5/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-5/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-5/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-5/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="5" type="button">Tải bài về máy</button></div>
   </div></details>
-</article><article class="u soon" id="u6" style="--c:#A5D8FF"><span class="L">Ee</span><div class="info"><div class="no">Unit 6 · sắp có</div><h3>In the classroom</h3><p class="w">bell · pen · pencil · red</p></div></article><article class="u soon" id="u7" style="--c:#B9E4A8"><span class="L">Gg</span><div class="info"><div class="no">Unit 7 · sắp có</div><h3>In the garden</h3><p class="w">garden · gate · girl · goat</p></div></article><article class="u soon" id="u8" style="--c:#FFC9C9"><span class="L">Hh</span><div class="info"><div class="no">Unit 8 · sắp có</div><h3>In the park</h3><p class="w">hair · hand · head · horse</p></div></article></div></div></section>
-<section class="term" id="hk2" data-term="hk2" hidden><div class="block"><div class="bh"><h2>Unit 9–12</h2><span class="rv">ôn tập: Review 3</span><span class="cnt">0/4 bài đã có</span></div>
-<div class="grid"><article class="u soon" id="u9" style="--c:#FBD34D"><span class="L">Oo</span><div class="info"><div class="no">Unit 9 · sắp có</div><h3>In the shop</h3><p class="w">clocks · locks · mops · pots</p></div></article><article class="u soon" id="u10" style="--c:#F7B3D6"><span class="L">Mm</span><div class="info"><div class="no">Unit 10 · sắp có</div><h3>At the zoo</h3><p class="w">mango · monkey · mother · mouse</p></div></article><article class="u soon" id="u11" style="--c:#9FE3D0"><span class="L">Uu</span><div class="info"><div class="no">Unit 11 · sắp có</div><h3>At the bus stop</h3><p class="w">bus · run · sun · truck</p></div></article><article class="u soon" id="u12" style="--c:#D6C4FA"><span class="L">Ll</span><div class="info"><div class="no">Unit 12 · sắp có</div><h3>At the lake</h3><p class="w">lake · leaf · lemons</p></div></article></div></div><div class="block"><div class="bh"><h2>Unit 13–16</h2><span class="rv">ôn tập: Review 4</span><span class="cnt">0/4 bài đã có</span></div>
+</article><article class="u" id="u6" style="--c:#A5D8FF">
+  <a class="main" href="unit-6.html"><span class="thumb"><img src="images/unit-6.webp" alt="" loading="lazy"><span class="L">Ee</span></span>
+  <span class="info"><span class="no">Unit 6</span><h3>In the classroom</h3><span class="w">bell · pen · pencil · red</span><span class="p">It's a red pen.</span></span></a>
+  <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
+    <div class="grp"><span>Bài giảng</span><a href="unit-6.html#tiet1">Tiết 1</a><a href="unit-6.html#tiet2">Tiết 2</a><a href="unit-6.html#tiet3">Tiết 3</a><a href="unit-6.html#luyennghe">Luyện nghe</a></div>
+    <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-6/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-6/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-6/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-6/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="6" type="button">Tải bài về máy</button></div>
+  </div></details>
+</article><article class="u" id="u7" style="--c:#B9E4A8">
+  <a class="main" href="unit-7.html"><span class="thumb"><img src="images/unit-7.webp" alt="" loading="lazy"><span class="L">Gg</span></span>
+  <span class="info"><span class="no">Unit 7</span><h3>In the garden</h3><span class="w">garden · gate · girl · goat</span><span class="p">There's a garden.</span></span></a>
+  <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
+    <div class="grp"><span>Bài giảng</span><a href="unit-7.html#tiet1">Tiết 1</a><a href="unit-7.html#tiet2">Tiết 2</a><a href="unit-7.html#tiet3">Tiết 3</a><a href="unit-7.html#luyennghe">Luyện nghe</a></div>
+    <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-7/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-7/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-7/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-7/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="7" type="button">Tải bài về máy</button></div>
+  </div></details>
+</article><article class="u" id="u8" style="--c:#FFC9C9">
+  <a class="main" href="unit-8.html"><span class="thumb"><img src="images/unit-8.webp" alt="" loading="lazy"><span class="L">Hh</span></span>
+  <span class="info"><span class="no">Unit 8</span><h3>In the park</h3><span class="w">hair · hand · head · horse</span><span class="p">Touch your hair.</span></span></a>
+  <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
+    <div class="grp"><span>Bài giảng</span><a href="unit-8.html#tiet1">Tiết 1</a><a href="unit-8.html#tiet2">Tiết 2</a><a href="unit-8.html#tiet3">Tiết 3</a><a href="unit-8.html#luyennghe">Luyện nghe</a></div>
+    <div class="grp"><span>Phiếu bài tập</span><a href="phieu-bai-tap/unit-8/lesson-1.pdf">Tiết 1</a><a href="phieu-bai-tap/unit-8/lesson-2.pdf">Tiết 2</a><a href="phieu-bai-tap/unit-8/lesson-3.pdf">Tiết 3</a><a href="phieu-bai-tap/unit-8/dap-an.pdf">Đáp án</a></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="8" type="button">Tải bài về máy</button></div>
+  </div></details>
+</article></div></div></section>
+<section class="term" id="hk2" data-term="hk2" hidden><div class="block"><div class="bh"><h2>Unit 9–12</h2><span class="rv">ôn tập: Review 3</span><span class="cnt">1/4 bài đã có</span></div>
+<div class="grid"><article class="u" id="u9" style="--c:#FBD34D">
+  <a class="main" href="unit-9.html"><span class="thumb"><img src="images/unit-9.webp" alt="" loading="lazy"><span class="L">Oo</span></span>
+  <span class="info"><span class="no">Unit 9</span><h3>In the shop</h3><span class="w">clocks · locks · mops · pots</span><span class="p">How many clocks? Two.</span></span></a>
+  <details><summary>Mở từng tiết · Phiếu bài tập</summary><div class="pop">
+    <div class="grp"><span>Bài giảng</span><a href="unit-9.html#tiet1">Tiết 1</a><a href="unit-9.html#tiet2">Tiết 2</a><a href="unit-9.html#tiet3">Tiết 3</a><a href="unit-9.html#luyennghe">Luyện nghe</a></div>
+    <div class="grp"><span>Phiếu bài tập</span><em>đang soạn</em></div>
+    <div class="grp"><span>Dùng khi không có mạng</span><button class="dl" data-dl="9" type="button">Tải bài về máy</button></div>
+  </div></details>
+</article><article class="u soon" id="u10" style="--c:#F7B3D6"><span class="L">Mm</span><div class="info"><div class="no">Unit 10 · sắp có</div><h3>At the zoo</h3><p class="w">mango · monkey · mother · mouse</p></div></article><article class="u soon" id="u11" style="--c:#9FE3D0"><span class="L">Uu</span><div class="info"><div class="no">Unit 11 · sắp có</div><h3>At the bus stop</h3><p class="w">bus · run · sun · truck</p></div></article><article class="u soon" id="u12" style="--c:#D6C4FA"><span class="L">Ll</span><div class="info"><div class="no">Unit 12 · sắp có</div><h3>At the lake</h3><p class="w">lake · leaf · lemons</p></div></article></div></div><div class="block"><div class="bh"><h2>Unit 13–16</h2><span class="rv">ôn tập: Review 4</span><span class="cnt">0/4 bài đã có</span></div>
 <div class="grid"><article class="u soon" id="u13" style="--c:#FDBA74"><span class="L">Nn</span><div class="info"><div class="no">Unit 13 · sắp có</div><h3>In the school canteen</h3><p class="w">bananas · noodles · nuts</p></div></article><article class="u soon" id="u14" style="--c:#A5D8FF"><span class="L">Tt</span><div class="info"><div class="no">Unit 14 · sắp có</div><h3>In the toy shop</h3><p class="w">teddy bear · tiger · top · turtle</p></div></article><article class="u soon" id="u15" style="--c:#B9E4A8"><span class="L">Ff</span><div class="info"><div class="no">Unit 15 · sắp có</div><h3>At the football match</h3><p class="w">face · father · foot · football</p></div></article><article class="u soon" id="u16" style="--c:#FFC9C9"><span class="L">Ww</span><div class="info"><div class="no">Unit 16 · sắp có</div><h3>At home</h3><p class="w">wash · water · window</p></div></article></div></div></section>
 
 </main>
@@ -171,6 +224,31 @@ document.querySelectorAll('.t').forEach(a=>a.addEventListener('click',e=>{e.prev
 let start='hk1';const h=location.hash.slice(1);
 if(h==='hk2'||/^u(9|1[0-6])$/.test(h))start='hk2';else if(!h){try{start=localStorage.getItem('hk')||'hk1'}catch(e){}}
 show(start);
+/* ---- app: install + offline ---- */
+let deferred=null;const ib=document.getElementById('instBtn');
+const standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+const ios=/iphone|ipad|ipod/i.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferred=e;if(!standalone)ib.hidden=false});
+if(ios&&!standalone&&location.protocol.startsWith('http'))ib.hidden=false;
+ib.onclick=async()=>{
+  if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;ib.hidden=true;return}
+  const s=document.createElement('div');s.className='sheet';s.setAttribute('role','dialog');
+  s.innerHTML='<h3>Cài app trên iPhone / iPad</h3><ol><li>Mở trang này bằng <b>Safari</b>.</li><li>Bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên lên).</li><li>Chọn <b>Thêm vào MH chính</b> (Add to Home Screen) rồi bấm <b>Thêm</b>.</li></ol><button type="button">Đã hiểu</button>';
+  document.body.appendChild(s);s.querySelector('button').onclick=()=>s.remove()};
+const canCache='caches' in window&&location.protocol.startsWith('http');
+let OFF=null;
+async function offList(){if(!OFF)OFF=await (await fetch('offline.json')).json();return OFF}
+async function isSaved(n){const l=(await offList())[n]||[];const c=await caches.open('ta1-data');for(const f of l){if(!(await c.match(f))&&!(await caches.match(f)))return false}return true}
+document.querySelectorAll('.dl').forEach(async b=>{
+  if(!canCache){b.disabled=true;b.textContent='Chỉ dùng được khi mở qua link web';return}
+  try{if(await isSaved(b.dataset.dl)){b.classList.add('ok');b.textContent='✓ Đã tải, dùng được khi không có mạng'}}catch(e){}
+  b.onclick=async()=>{if(b.classList.contains('ok'))return;
+    try{const l=(await offList())[b.dataset.dl];const c=await caches.open('ta1-data');let i=0;
+      for(const f of l){b.textContent=`Đang tải… ${Math.round(++i/l.length*100)}%`;const r=await fetch(f);if(r.ok)await c.put(f,r)}
+      b.classList.add('ok');b.textContent='✓ Đã tải, dùng được khi không có mạng'}
+    catch(e){b.textContent='Tải lỗi, thử lại khi có mạng'}};
+});
 </script>
+<script>if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');</script>
 </body>
 </html>

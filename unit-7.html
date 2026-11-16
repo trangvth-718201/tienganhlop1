@@ -1,0 +1,1096 @@
+<!doctype html>
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Unit 7 · In the garden</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#16324A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tiếng Anh 1">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
+<style>
+/* Layout: sticky lesson bar on top, one tall column of activity "boards" per lesson, each a projector-friendly panel */
+:root{
+  --bg:#EEF5F8; --surface:#FFFFFF; --paper:#FFFFFF; --ink:#16324A; --muted:#55707F;
+  --red:#E0312B; --grass:#4E9A3A; --sky:#2F7FC1; --sun:#F5B828; --line:#D3E2EA; --soft:#E3EEF3;
+  --display:"Baloo 2","Comic Sans MS",system-ui,sans-serif;
+  --body:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1E2B; --surface:#172B3B; --paper:#FFFFFF; --ink:#EAF3F8; --muted:#9DB5C3;
+  --red:#FF5A4E; --grass:#79C35F; --sky:#6BB2EE; --sun:#F7C64A; --line:#2A4457; --soft:#1F3647; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1E2B; --surface:#172B3B; --paper:#FFFFFF; --ink:#EAF3F8; --muted:#9DB5C3;
+  --red:#FF5A4E; --grass:#79C35F; --sky:#6BB2EE; --sun:#F7C64A; --line:#2A4457; --soft:#1F3647; color-scheme:dark}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);line-height:1.1;text-wrap:balance;margin:0}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.b{color:var(--red)}
+
+/* top bar */
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.bar .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;padding-block:10px}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.badge{font-family:var(--display);font-weight:800;font-size:26px;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--sun);color:#16324A;flex:none}
+.brand small{display:block;color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.brand strong{font-family:var(--display);font-size:22px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap}
+.tab{border:2px solid var(--line);background:transparent;border-radius:999px;padding:6px 16px;font-weight:600}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.score{margin-left:auto;display:flex;gap:6px;flex-wrap:wrap}
+.grp{display:flex;align-items:center;gap:4px;background:var(--soft);border-radius:12px;padding:3px 4px 3px 10px;font-size:14px;font-variant-numeric:tabular-nums}
+.grp b{font-family:var(--display);font-size:20px;min-width:1.4em;text-align:center}
+.grp button{border:0;background:var(--surface);width:28px;height:28px;border-radius:8px;font-weight:700}
+.tool{border:2px solid var(--line);background:transparent;border-radius:10px;padding:6px 10px;font-size:14px}
+
+/* boards */
+main{padding-block:22px 60px}
+.lesson{display:grid;gap:22px}
+.intro{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:center}
+.intro>*,.lesson>*{min-width:0}
+.tq>*{min-width:0}
+.intro img{border-radius:18px;width:100%;display:block}
+.intro h2{font-size:clamp(34px,5vw,56px)}
+.intro p{margin:.5em 0 0;color:var(--muted);max-width:52ch}
+.goals{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding:0;list-style:none}
+.goals li{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:6px 12px;font-size:15px}
+.board{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px clamp(16px,3vw,32px)}
+.bhead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.bhead img{width:58px;height:58px}
+.num{font-family:var(--display);font-weight:800;font-size:18px;color:var(--muted);letter-spacing:.04em}
+.bhead h3{font-size:clamp(28px,3.4vw,40px)}
+.bhead .time{margin-left:auto;font-size:14px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 12px}
+details.gv{margin-top:18px;border-top:1px dashed var(--line);padding-top:12px;color:var(--muted);font-size:15px}
+details.gv summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details.gv ol{margin:.5em 0 0;padding-left:1.3em;max-width:80ch}
+.play{display:inline-flex;align-items:center;gap:8px;border:0;background:var(--sky);color:#fff;border-radius:999px;padding:9px 18px 9px 12px;font-weight:600}
+.play::before{content:"";width:0;height:0;border-left:13px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:4px}
+.play.on{background:var(--red)}
+.play.on::before{border:0;width:12px;height:12px;background:#fff;border-radius:2px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* word cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px}
+.card{position:relative;background:var(--paper);border:3px solid var(--line);border-radius:20px;padding:14px 12px 10px;display:flex;flex-direction:column;align-items:center;gap:6px;color:#16324A;transition:transform .15s}
+.card:hover{transform:translateY(-3px)}
+.card img{height:150px;width:auto;object-fit:contain}
+.card .w{font-family:var(--display);font-weight:800;font-size:42px;line-height:1}
+.card .w .b{color:#E0312B}
+.card.letter .w{font-size:96px}
+.card.hidew .w{visibility:hidden}
+.card.ok{border-color:var(--grass);animation:pop .4s}
+.card.no{border-color:var(--red);animation:shake .35s}
+@keyframes pop{50%{transform:scale(1.06)}}
+@keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+.scene{position:relative;border-radius:18px;overflow:hidden;max-width:900px;margin:0 auto}
+.scene img{display:block;width:100%}
+.spot{position:absolute;transform:translate(-50%,-50%);border:3px solid #fff;background:rgba(224,49,43,.85);color:#fff;font-family:var(--display);font-weight:700;font-size:clamp(14px,2vw,22px);border-radius:999px;padding:2px 14px;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.spot.hid{background:rgba(22,50,74,.8)}
+.msg{font-family:var(--display);font-size:26px;min-height:1.4em;text-align:center}
+
+/* chant / song */
+.lyrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.verse{background:var(--soft);border-radius:16px;padding:16px 20px;font-family:var(--display);font-size:clamp(24px,2.6vw,32px);line-height:1.35;font-weight:600}
+.verse.now{outline:4px solid var(--sun)}
+/* tick */
+.tq{display:grid;grid-template-columns:auto 1fr 1fr;gap:14px;align-items:center;margin-bottom:14px}
+.tq .n{font-family:var(--display);font-size:30px;font-weight:800;color:var(--sky)}
+.opt{background:var(--paper);border:3px solid var(--line);border-radius:18px;padding:10px;display:flex;align-items:center;justify-content:center;gap:12px;color:#16324A;min-height:150px}
+.opt img{max-height:130px;width:auto}
+.opt .box{width:40px;height:40px;border:3px solid #16324A;border-radius:8px;display:grid;place-items:center;font-size:28px;font-weight:800;flex:none}
+.opt .lt{font-family:var(--display);font-weight:800;background:var(--sun);border-radius:50%;width:30px;height:30px;display:grid;place-items:center;flex:none}
+.opt.sel .box::after{content:"✓"}
+.opt.right{border-color:var(--grass)}
+.opt.wrong{border-color:var(--red)}
+/* trace */
+.trace{display:grid;grid-template-columns:1fr;gap:12px}
+canvas{width:100%;max-width:100%;aspect-ratio:2.2/1;background:var(--paper);border-radius:18px;border:3px solid var(--line);touch-action:none;display:block}
+.swatch{width:34px;height:34px;border-radius:50%;border:3px solid var(--line)}
+.swatch[aria-pressed="true"]{border-color:var(--ink)}
+/* talk */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.duo figure{margin:0;background:var(--paper);border-radius:18px;padding:10px;position:relative;color:#16324A}
+.duo img{width:100%;display:block;border-radius:12px}
+.duo figcaption{font-family:var(--display);font-size:clamp(22px,2.6vw,32px);font-weight:700;text-align:center;padding-top:6px}
+.fill{color:#E0312B;border-bottom:3px dotted #E0312B;padding:0 .2em;min-width:3ch;display:inline-block}
+input[type=text]{font:inherit;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:6px 12px;width:12ch}
+/* eggs */
+.eggs{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.egg{aspect-ratio:3/4;border:0;background:transparent;position:relative;padding:0}
+.egg .shell{position:absolute;inset:0;border-radius:50% 50% 46% 46%/60% 60% 40% 40%;background:repeating-linear-gradient(135deg,var(--sun) 0 18px,#F9D46B 18px 36px);border:4px solid #C98F12;display:grid;place-items:center;font-family:var(--display);font-size:44px;font-weight:800;color:#7A560B;transition:transform .4s,opacity .4s}
+.egg .in{position:absolute;inset:8%;display:grid;place-items:center;background:var(--paper);border-radius:50% 50% 46% 46%/60% 60% 40% 40%}
+.egg .in img{max-width:80%;max-height:70%}
+.egg.open .shell{transform:translateY(-30%) rotate(-18deg);opacity:0;pointer-events:none}
+.home{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.home div{background:var(--soft);border-radius:14px;padding:14px 16px}
+.home h4{margin:0 0 4px;font-family:var(--display);font-size:20px}
+.duo img{max-height:340px;object-fit:contain}
+.eggs{max-width:760px;margin:0 auto}
+@media (max-width:720px){
+  .intro{grid-template-columns:1fr}
+  .duo{grid-template-columns:1fr}
+  .tq{grid-template-columns:auto 1fr}
+  .tq .opt:last-child{grid-column:2}
+  .eggs{grid-template-columns:repeat(2,1fr)}
+  .score{margin-left:0}
+  .card img{height:110px}
+}
+
+/* ---- ghi nhớ & hiểu bài ---- */
+.vn{display:none;font-family:var(--body);font-size:15px;font-weight:500;color:var(--muted);line-height:1.35;text-align:center}
+.card .vn,.duo .vn,.opt .vn{color:#55707F}
+body.vn-on .vn{display:block}
+.tool[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:0;padding:0;list-style:none;counter-reset:s}
+.steps li{background:var(--soft);border-radius:16px;padding:16px 18px;counter-increment:s;display:grid;gap:6px}
+.steps li::before{content:counter(s);font-family:var(--display);font-weight:800;font-size:22px;width:38px;height:38px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center}
+.steps b{font-family:var(--display);font-size:22px;font-weight:700}
+.tip{margin-top:14px;background:var(--soft);border-left:5px solid var(--sun);border-radius:10px;padding:10px 14px}
+.lmem{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.lmem div{background:var(--paper);color:#16324A;border:3px solid var(--line);border-radius:16px;padding:12px 16px;display:flex;gap:14px;align-items:center}
+.lmem .big{font-family:var(--display);font-weight:800;font-size:76px;line-height:1;color:#E0312B}
+.tpr .act{font-size:15px;color:#16324A;text-align:center;background:#FFF3CC;border-radius:10px;padding:6px 8px;line-height:1.35}
+.stage{background:var(--soft);border-radius:18px;min-height:260px;display:grid;place-items:center;text-align:center;padding:16px}
+.stage img{max-height:220px;width:auto}
+.stage .say{font-family:var(--display);font-size:clamp(30px,4vw,48px);font-weight:800}
+.mystery{position:relative;max-width:420px;margin:0 auto;aspect-ratio:1;background:var(--paper);border-radius:18px;overflow:hidden;border:3px solid var(--line)}
+.mystery img{position:absolute;inset:8%;width:84%;height:84%;object-fit:contain}
+.mystery .tiles{position:absolute;inset:0;display:grid;grid-template-columns:repeat(3,1fr)}
+.mystery .tiles button{border:2px solid var(--surface);background:var(--sky);color:#fff;font-family:var(--display);font-size:34px;font-weight:800;transition:opacity .3s}
+.mystery .tiles button:nth-child(odd){background:#2569A3}
+.mystery .tiles button.off{opacity:0;pointer-events:none}
+.hunt{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;max-width:760px;margin:0 auto}
+.hunt button{aspect-ratio:1;border:3px solid var(--line);background:var(--paper);color:#16324A;border-radius:16px;font-family:var(--display);font-weight:800;font-size:clamp(30px,5vw,54px);line-height:1}
+.hunt button.ok{background:#DDF1D5;border-color:var(--grass);color:#E0312B}
+.hunt button.no{animation:shake .35s;border-color:var(--red)}
+.sit{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.sit>div{background:var(--soft);border-radius:16px;padding:14px 16px;display:grid;gap:10px;align-content:space-between}
+.sit p{margin:0;font-size:18px;font-weight:500}
+.sit .hb{display:flex;gap:8px}
+.sit .hb button{flex:1;border:3px solid var(--line);background:var(--surface);border-radius:12px;padding:8px;font-family:var(--display);font-size:24px;font-weight:700}
+.sit .hb button.ok{border-color:var(--grass);background:#DDF1D5;color:#16324A}
+.sit .hb button.no{border-color:var(--red);animation:shake .35s}
+.sit .ans{font-family:var(--display);font-size:20px;color:var(--grass);min-height:1.3em}
+.mind{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center}
+.mind .core{width:220px;height:220px;border-radius:50%;background:var(--sun);color:#16324A;display:grid;place-items:center;text-align:center;font-family:var(--display);font-weight:800;font-size:24px;line-height:1.15;padding:20px}
+.mind .core .bb{font-size:56px;color:#E0312B;display:block}
+.mind .side{display:grid;gap:12px}
+.branch{background:var(--soft);border-radius:16px;padding:12px 14px}
+.branch h4{margin:0 0 8px;font-family:var(--display);font-size:20px;color:var(--sky)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:flex;align-items:center;gap:8px;background:var(--paper);color:#16324A;border:2px solid var(--line);border-radius:14px;padding:4px 12px 4px 4px;font-family:var(--display);font-weight:700;font-size:22px}
+.chip img{width:46px;height:46px;object-fit:contain}
+.chip.t{padding:6px 14px}
+.quiz{display:grid;gap:14px}
+.qtop{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.qprog{display:flex;gap:6px}
+.qprog i{width:18px;height:18px;border-radius:50%;background:var(--line)}
+.qprog i.ok{background:var(--grass)} .qprog i.no{background:var(--red)} .qprog i.cur{outline:3px solid var(--sun)}
+.qq{font-family:var(--display);font-size:clamp(24px,3vw,34px);font-weight:700;text-align:center}
+.qimg{display:block;margin:0 auto;max-height:200px;width:auto;border-radius:14px}
+.qopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.qopts .opt{min-height:120px;flex-direction:column;gap:4px}
+.qopts .opt img{max-height:100px}
+.qopts .opt .tx{font-family:var(--display);font-size:clamp(24px,3vw,34px);font-weight:800}
+.qend{text-align:center;font-family:var(--display);font-size:32px;font-weight:800}
+.qend .stars{font-size:54px;color:#E5A50A;letter-spacing:.1em}
+.self{display:grid;gap:10px}
+.self .it{display:flex;flex-wrap:wrap;align-items:center;gap:10px;justify-content:space-between;background:var(--soft);border-radius:14px;padding:10px 14px}
+.self .it span{font-size:18px;font-weight:500;min-width:0}
+.faces{display:flex;gap:6px}
+.faces button{border:3px solid var(--line);background:var(--surface);border-radius:999px;padding:4px 12px;font-weight:600;font-size:15px}
+.faces button[aria-pressed="true"][data-v="0"]{background:#FBE0DE;border-color:var(--red);color:#16324A}
+.faces button[aria-pressed="true"][data-v="1"]{background:#FFF0C2;border-color:var(--sun);color:#16324A}
+.faces button[aria-pressed="true"][data-v="2"]{background:#DDF1D5;border-color:var(--grass);color:#16324A}
+.remember{background:#FFF3CC;color:#16324A;border-radius:14px;padding:12px 16px;margin-bottom:14px;font-size:17px}
+.remember b{font-family:var(--display);font-size:20px}
+@media (max-width:720px){.mind{grid-template-columns:1fr}.mind .core{margin:0 auto}.hunt{grid-template-columns:repeat(4,1fr)}}
+
+/* ---- luyện nghe ---- */
+.gnav{display:flex;flex-wrap:wrap;gap:8px}
+.gnav a{text-decoration:none;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:999px;padding:5px 14px;font-weight:600;font-size:15px}
+.gstat{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:space-between;margin-bottom:14px}
+.gstat .st{font-family:var(--display);font-size:24px;font-weight:800;color:#C98A00;font-variant-numeric:tabular-nums}
+.big-ear{display:flex;justify-content:center;margin:6px 0 14px}
+.big-ear .play{font-size:20px;padding:12px 26px 12px 18px}
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:820px;margin:0 auto}
+.mc{aspect-ratio:1;border:0;padding:0;background:transparent;perspective:800px}
+.mc .fl{position:relative;display:block;width:100%;height:100%;transition:transform .45s;transform-style:preserve-3d}
+.mc.up .fl,.mc.done .fl{transform:rotateY(180deg)}
+.mc .fr,.mc .bk{position:absolute;inset:0;border-radius:18px;display:grid;place-items:center;backface-visibility:hidden;border:3px solid var(--line)}
+.mc .fr{background:repeating-linear-gradient(45deg,var(--sky) 0 14px,#2569A3 14px 28px);color:#fff;font-family:var(--display);font-size:46px;font-weight:800}
+.mc .bk{background:var(--paper);transform:rotateY(180deg);color:#16324A;font-family:var(--display);font-weight:800;font-size:clamp(26px,4vw,44px)}
+.mc .bk img{max-width:78%;max-height:78%}
+.mc.done .bk{border-color:var(--grass);background:#EAF6E4}
+.sky{position:relative;height:380px;border-radius:18px;overflow:hidden;background:linear-gradient(#BFE3F7,#EAF6FD);border:3px solid var(--line)}
+.bal{position:absolute;bottom:-140px;width:120px;height:140px;border:0;background:transparent;padding:0;will-change:transform}
+.bal>span{display:grid;place-items:center;width:120px;height:120px;border-radius:50% 50% 48% 48%;font-family:var(--display);font-weight:800;font-size:30px;color:#16324A;box-shadow:inset -10px -12px 0 rgba(0,0,0,.08)}
+.bal::after{content:"";position:absolute;left:59px;top:118px;width:2px;height:40px;background:#8899A6}
+.bal.pop{animation:popb .3s forwards}
+@keyframes rise{to{transform:translateY(-560px)}}
+@keyframes popb{to{transform:scale(1.6);opacity:0}}
+.yn{display:grid;grid-template-columns:1fr;gap:14px;justify-items:center}
+.yn .pic{background:var(--paper);border:3px solid var(--line);border-radius:20px;padding:14px;width:min(320px,100%);aspect-ratio:1;display:grid;place-items:center}
+.yn .pic img{max-height:100%;max-width:100%}
+.ynb{display:flex;gap:16px}
+.ynb button{border:4px solid var(--line);background:var(--surface);border-radius:18px;padding:10px 30px;font-family:var(--display);font-size:32px;font-weight:800;min-width:140px}
+.ynb .y{color:var(--grass)} .ynb .n{color:var(--red)}
+.ynb button.ok{background:#DDF1D5;border-color:var(--grass)} .ynb button.no{animation:shake .35s;border-color:var(--red)}
+.slots{display:flex;gap:12px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.slot{width:110px;height:110px;border:3px dashed var(--line);border-radius:16px;background:var(--paper);display:grid;place-items:center;position:relative}
+.slot img{max-width:80%;max-height:80%}
+.slot b{position:absolute;top:-12px;left:-10px;background:var(--sun);color:#16324A;border-radius:50%;width:30px;height:30px;display:grid;place-items:center;font-family:var(--display)}
+.ml{display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:center;max-width:760px;margin:0 auto}
+.ml .pic{background:var(--paper);border:3px solid var(--line);border-radius:18px;width:200px;height:200px;display:grid;place-items:center}
+.ml .pic img{max-width:85%;max-height:85%}
+.ml .word{font-family:var(--display);font-weight:800;font-size:clamp(46px,7vw,80px);letter-spacing:.04em}
+.ml .word .gap{display:inline-block;min-width:.8em;border-bottom:6px solid var(--sun);text-align:center;color:#E0312B}
+.lbtn{display:flex;gap:12px;margin-top:10px}
+.lbtn button{width:84px;height:84px;border:3px solid var(--line);background:var(--surface);border-radius:18px;font-family:var(--display);font-weight:800;font-size:48px}
+.lbtn button.no{animation:shake .35s;border-color:var(--red)}
+.feed{font-family:var(--display);font-size:26px;text-align:center;min-height:1.4em;margin-top:10px}
+@media (max-width:720px){.mem{grid-template-columns:repeat(3,1fr)}.ml{grid-template-columns:1fr;justify-items:center}.sky{height:340px}.bal,.bal>span{width:96px}.bal>span{height:96px;font-size:24px}.bal::after{left:47px;top:94px}}
+select{font:inherit;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:10px;padding:6px 10px}
+#haveCards .card.sel{border-color:var(--sun)}
+.qopts{grid-template-columns:repeat(auto-fit,minmax(min(130px,100%),1fr))}
+.qopts>*,.quiz,.tq>*{min-width:0}
+.opt img{max-width:65%;object-fit:contain}
+.qimg{max-width:100%!important;height:auto;object-fit:contain}
+.cards>*{min-width:0}
+.card img{max-width:100%;object-fit:contain}
+#hsStage img{max-height:200px}
+/*rg*/.wb{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;min-height:90px}
+.wb button{width:76px;height:84px;border-radius:14px;border:3px solid var(--line);background:var(--paper);color:#16324A;font-family:var(--display);font-weight:800;font-size:44px}
+.wb button.used{opacity:.25}
+.wbslots{display:flex;gap:8px;justify-content:center;margin:14px 0;flex-wrap:wrap}
+.wbslots span{width:60px;height:72px;border-bottom:5px solid var(--sun);font-family:var(--display);font-weight:800;font-size:44px;display:grid;place-items:center;color:var(--ink)}
+.rg{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;max-width:820px;margin:0 auto}
+.rg button{height:110px;border-radius:16px;border:3px solid var(--line);font-family:var(--display);font-weight:800;font-size:clamp(28px,4vw,44px);color:#fff}
+.rg button.r{background:#D9342B}.rg button.g{background:#3E8E2F}
+.rg button.up{background:var(--paper);color:#16324A}
+.rg button.kept{opacity:.35}
+@media (max-width:720px){.songgrid{grid-template-columns:1fr!important}.rg{grid-template-columns:repeat(2,1fr)}}
+
+/* ---- phone layout ---- */
+#moreBtn{display:none}
+@media (max-width:720px){
+  body{font-size:16px}
+  .bar .wrap{gap:6px 8px;padding-block:6px}
+  .bar a.tool{font-size:0;padding:6px 11px;flex:none}
+  .bar a.tool::before{content:"←";font-size:18px;font-weight:700}
+  .brand{flex:1;gap:8px}
+  .brand>div{min-width:0}
+  .brand small{display:none}
+  .brand strong{display:block;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .badge{width:36px;height:36px;font-size:18px}
+  #moreBtn{display:inline-flex;align-items:center;gap:4px;flex:none;padding:6px 10px}
+  .tabs{order:5;width:100%;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .tabs::-webkit-scrollbar{display:none}
+  .tab{flex:none;white-space:nowrap;padding:5px 13px;font-size:15px}
+  .bar .score,#vnBtn,#spd,#fs{display:none}
+  .bar.open .score{display:flex;order:6;width:100%}
+  .bar.open #vnBtn,.bar.open #spd{display:inline-flex;order:7}
+  .grp{font-size:13px}
+  main{padding-block:14px 40px}
+  .lesson{gap:14px}
+  .intro{gap:12px}
+  .intro h2{font-size:32px}
+  .intro img{max-height:230px;object-fit:cover}
+  .board{padding:16px 14px;border-radius:16px}
+  .bhead{gap:6px 8px;margin-bottom:12px}
+  .bhead img{width:34px;height:34px}
+  .bhead h3{font-size:23px}
+  .bhead .time{font-size:12px;padding:1px 9px}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .card{padding:10px 8px 8px;border-radius:16px}
+  .card img{height:88px}
+  .card .w{font-size:26px}
+  .card.letter{grid-column:1/-1}
+  .card.letter .w{font-size:60px}
+  .tpr .act{font-size:13px}
+  .duo{gap:12px}
+  .duo img{max-height:210px;object-fit:contain}
+  .duo figcaption{font-size:20px}
+  .verse{font-size:21px;padding:12px 14px}
+  .steps li{padding:12px 14px}
+  .lmem .big{font-size:56px}
+  .stage{min-height:180px}
+  .stage img{max-height:150px}
+  .msg{font-size:20px}
+  .play{font-size:15px;padding:8px 14px 8px 10px}
+  .tq{gap:8px}
+  .opt{min-height:110px;padding:6px;gap:6px}
+  .opt img{max-height:84px}
+  .opt .box{width:32px;height:32px}
+  .hunt{gap:6px}
+  .mystery{max-width:300px}
+  .sky{height:300px}
+  .mem{gap:8px;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .mc .fr{font-size:30px}
+  .mc .bk{font-size:19px}
+  .ml .pic{width:150px;height:150px}
+  .ml .word{font-size:44px}
+  .mind .core{width:170px;height:170px;font-size:19px}
+  .mind .core .bb{font-size:44px}
+  .chip{font-size:18px}
+  .chip img{width:38px;height:38px}
+  details.gv{font-size:14px}
+}
+.pb{display:grid;place-items:center;min-height:220px;background:var(--soft);border-radius:18px;padding:16px;text-align:center}
+.pb img{max-height:170px;max-width:100%;object-fit:contain}
+.pb .bang{font-family:var(--display);font-weight:800;font-size:72px;color:#E0312B;line-height:1}
+.pb .box{font-size:80px;line-height:1}
+.pb.shake .box{animation:shk .4s linear 2}
+@keyframes shk{25%{transform:rotate(-12deg)}75%{transform:rotate(12deg)}}
+.yn2 p{text-align:center;font-family:var(--display);font-size:22px;font-weight:700}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head><body>
+
+
+<header class="bar"><div class="wrap">
+  <a class="tool" href="index.html" style="text-decoration:none;color:inherit" aria-label="Tất cả bài">← Tất cả bài</a><div class="brand"><span class="badge" style="background:#86EFAC">Gg</span><div><small>Tiếng Anh 1 · Global Success</small><strong>Unit 7 · In the garden</strong></div></div>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-l="1" id="t1">Tiết 1</button>
+    <button class="tab" role="tab" data-l="2" id="t2">Tiết 2</button>
+    <button class="tab" role="tab" data-l="3" id="t3">Tiết 3</button>
+    <button class="tab" role="tab" data-l="4" id="t4">Luyện nghe</button>
+  </div>
+  <button class="tool" id="moreBtn" aria-expanded="false" aria-controls="score">⋯ Công cụ</button>
+  <div class="score" id="score" aria-label="Điểm thi đua các nhóm"></div>
+  <button class="tool" id="vnBtn" aria-pressed="false">Hiện nghĩa tiếng Việt</button>
+  <button class="tool" id="spd" aria-pressed="false" title="Phát âm thanh chậm hơn để con nghe rõ">Nghe chậm</button>
+  <button class="tool" id="fs">Toàn màn hình</button>
+</div></header>
+
+<main class="wrap">
+<!-- ============ LESSON 1 ============ -->
+<section class="lesson" id="L1" data-hash="tiet1">
+  <div class="intro">
+    <div>
+      <div class="num">LESSON 1 · TIẾT 1 · SGK TRANG 31</div>
+      <h2>Letter <span class="b">G</span>g</h2>
+      <p>Học sinh phát âm được âm /g/ của chữ G/g và nói được các từ <b>garden, gate, girl, goat</b>.</p>
+      <ul class="goals"><li>Âm /g/</li><li>garden</li><li>gate</li><li>girl</li><li>goat</li></ul>
+    </div>
+    <img loading="lazy" src="assets/unit-7/8bf7e72643.webp" alt="Tranh khu vườn">
+  </div>
+
+  <article class="board">
+    <div class="bhead"><span class="num">KHỞI ĐỘNG</span><h3>Warm-up: Ôn Unit 6</h3><span class="time">5 phút</span></div>
+    <p style="margin:0 0 14px;color:var(--muted)">Chỉ từng tranh, HS nói <b>It's a red ___.</b> Bấm thẻ để nghe từ.</p>
+    <div class="cards">
+      <button class="card hidew" data-a="u6_bell"><img loading="lazy" src="assets/unit-7/a525196463.webp" alt=""><span class="w">b<span class="b">e</span>ll</span></button>
+      <button class="card hidew" data-a="u6_pen"><img loading="lazy" src="assets/unit-7/11e705b633.webp" alt=""><span class="w">p<span class="b">e</span>n</span></button>
+      <button class="card hidew" data-a="u6_pencil"><img loading="lazy" src="assets/unit-7/56effada3f.webp" alt=""><span class="w">p<span class="b">e</span>ncil</span></button>
+      <button class="card hidew" data-a="u6_red"><img loading="lazy" src="assets/unit-7/131841a2e0.webp" alt=""><span class="w">r<span class="b">e</span>d</span></button>
+    </div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Cả lớp hát bài hát Unit 6 (Hello, I'm Jen) và vỗ tay.</li>
+      <li>Nếu còn thời gian: chơi Hot seat với các từ Unit 6.</li>
+      <li>Cho HS xem ảnh một khu vườn: <i>What can you see?</i> để dẫn vào bài mới.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/73b8817489.webp" alt=""><img loading="lazy" src="assets/unit-7/e7ce149960.webp" alt=""><span class="num">1</span><h3>Listen and repeat</h3><span class="time">10 phút</span></div>
+    <div class="row" style="margin-bottom:16px"><button class="play" data-a="lr">Nghe cả bài (có ngừng để nhắc lại)</button><button class="tool" data-seq="Gg,garden,gate,girl,goat">Chỉ nghe các từ</button><span style="color:var(--muted);font-size:15px">Bấm từng thẻ để nghe riêng.</span></div>
+    <div class="cards">
+      <button class="card letter" data-a="Gg"><span class="w"><span class="b">G</span><span class="b">g</span></span></button>
+      <button class="card" data-a="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt=""><span class="w"><span class="b">g</span>arden</span></button>
+      <button class="card" data-a="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt=""><span class="w"><span class="b">g</span>ate</span></button>
+      <button class="card" data-a="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt=""><span class="w"><span class="b">g</span>irl</span></button>
+      <button class="card" data-a="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt=""><span class="w"><span class="b">g</span>oat</span></button>
+    </div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Cho HS xem tranh khu vườn (SGK trang 31): có hàng rào trắng, một cái cổng nhỏ, một bạn gái đang cho dê ăn.</li>
+      <li>Chú ý chữ <b>g</b> màu đỏ ở <b>đầu</b> các từ: <b>g</b>arden, <b>g</b>ate, <b>g</b>irl, <b>g</b>oat.</li>
+      <li>Nghe và nhắc lại từng từ (đồng thanh, cá nhân); gọi vài em nói trước lớp.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">GHI NHỚ ÂM</span><h3>Âm /g/ nói thế nào?</h3><span class="time">3 phút</span></div>
+    <ol class="steps">
+      <li><b>Cuống lưỡi nâng lên</b>Phần cuối lưỡi chạm vào phía sau vòm miệng, chặn hơi lại.</li>
+      <li><b>Bật nhẹ</b>Hạ lưỡi xuống thật nhanh cho hơi bật ra.</li>
+      <li><b>Cổ rung: /g/</b>Đặt tay lên cổ, nói /g/ – /g/ – /g/ sẽ thấy cổ rung. Giống "g" trong "gà" tiếng Việt.</li>
+    </ol>
+    <div class="row" style="margin-top:14px"><button class="play" data-seq="Gg,garden,Gg,gate,Gg,girl,Gg,goat">Nghe: G – garden – G – gate – G – girl – G – goat</button></div>
+    <div class="lmem">
+      <div><span class="big">G</span><span><b>G hoa</b>: viết như chữ <b>C</b> rồi thêm <b>nét ngang nhỏ</b> ở cuối. Khác <b>C</b> (không có nét ngang).</span></div>
+      <div><span class="big">g</span><span><b>g thường</b>: một <b>vòng tròn nhỏ</b> rồi kéo nét <b>móc xuống dưới</b> dòng kẻ. Khác <b>q</b> (đuôi thẳng) và <b>y</b>.</span></div>
+    </div>
+    <p class="tip">Mẹo: chữ <b>g</b> giống một bạn nhỏ có cái đuôi cong móc xuống. Trong bài này chữ g đứng <b>đầu</b> từ: <b>g</b>arden, <b>g</b>ate, <b>g</b>irl, <b>g</b>oat.</p>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">NHỚ BẰNG ĐỘNG TÁC</span><h3>Teacher says</h3><span class="time">5 phút</span></div>
+    <div class="cards tpr">
+      <button class="card" data-a="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt=""><span class="w"><span class="b">g</span>arden</span><span class="act">Dang rộng hai tay, cúi xuống ngửi hoa</span></button>
+      <button class="card" data-a="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt=""><span class="w"><span class="b">g</span>ate</span><span class="act">Hai tay đẩy ra như mở cổng: "Open!"</span></button>
+      <button class="card" data-a="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt=""><span class="w"><span class="b">g</span>irl</span><span class="act">Vẫy tay chào như một bạn gái: "Hi!"</span></button>
+      <button class="card" data-a="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt=""><span class="w"><span class="b">g</span>oat</span><span class="act">Hai ngón tay làm sừng trên đầu: "Meh-eh!"</span></button>
+    </div>
+    <div class="row" style="justify-content:center;margin:16px 0 10px"><button class="play" id="tsGo">Teacher says…</button></div>
+    <div class="stage" id="tsStage"><div class="say">Nghe từ, làm động tác, rồi nói to!</div></div>
+    <p class="tip">Chơi nhanh dần: cô đọc từ, cả lớp làm động tác; bạn nào làm sai thì ngồi xuống.</p>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/97cdddf0dc.webp" alt=""><img loading="lazy" src="assets/unit-7/6e3bc4b128.webp" alt=""><span class="num">2</span><h3>Point and say</h3><span class="time">7 phút</span></div>
+    <div class="scene" id="pointScene" style="max-width:820px">
+      <img loading="lazy" src="assets/unit-7/8bf7e72643.webp" alt="Tranh khu vườn: bạn gái cho dê ăn, có cổng và hàng rào">
+      <button class="spot" data-a="girl" data-w="girl" style="left:42.3%;top:26.5%">girl</button>
+      <button class="spot" data-a="garden" data-w="garden" style="left:70.9%;top:34.8%">garden</button>
+      <button class="spot" data-a="goat" data-w="goat" style="left:21.1%;top:64.7%">goat</button>
+      <button class="spot" data-a="gate" data-w="gate" style="left:52.3%;top:69.1%">gate</button>
+    </div>
+    <div class="row" style="justify-content:center;margin-top:14px"><button class="tool" id="hideSpots">Ẩn chữ để HS tự nói</button></div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li><i>Point to the letter G/g and say, please!</i> rồi lần lượt chỉ khu vườn, cái cổng, bạn gái, con dê.</li>
+      <li>Bấm "Ẩn chữ": HS tự nói, bấm nhãn để nghe đáp án.</li>
+      <li>Làm theo cặp: một bạn chỉ, một bạn nói.</li></ol></details>
+  </article>
+  <article class="board">
+    <div class="bhead"><span class="num">FUN CORNER</span><h3>Bang!</h3><span class="time">5 phút</span></div>
+    <p style="margin:0 0 12px;color:var(--muted)">Mỗi nhóm lần lượt rút một thẻ. Thẻ có tranh: nói đúng từ thì được giữ thẻ (+1 sao). Rút phải thẻ <b>BANG!</b>: mất hết thẻ đang giữ!</p>
+    <div class="pb" id="bgStage"><div><span class="box">🎁</span><div class="say" style="margin-top:8px">Hộp có 10 thẻ</div></div></div>
+    <div class="row" style="justify-content:center;margin-top:12px"><button class="play" id="bgGo">Rút thẻ</button><button class="tool" id="bgSay">Nghe đáp án</button><button class="tool" id="bgNew">Làm hộp mới</button></div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Theo SGV: viết các từ garden, gate, girl, goat lên các mẩu giấy, thêm vài mẩu ghi BANG!, bỏ vào hộp.</li>
+      <li>HS lần lượt rút: đọc đúng từ thì giữ thẻ; rút phải BANG! thì trả hết thẻ vào hộp. Hết giờ, nhóm giữ nhiều thẻ nhất thắng.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">FUN CORNER</span><h3>Matching game: ghép chữ</h3><span class="time">8 phút</span></div>
+    <p style="margin:0 0 6px;color:var(--muted)">Nghe một từ, rồi chạm các chữ cái theo đúng thứ tự để ghép thành từ đó.</p>
+    <div class="wbslots" id="wbSlots"></div>
+    <div class="wb" id="wbTiles"></div>
+    <div class="msg" id="wbMsg"></div>
+    <div class="row" style="justify-content:center;margin-top:10px"><button class="tool" id="wbSay">Nghe lại</button><button class="tool" id="wbShow">Hiện đáp án</button><button class="play" id="wbNew">Từ mới</button></div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Theo giáo án: phát thẻ chữ cái cho các nhóm. Cô đọc một từ (vd. GOAT), nhóm có đủ chữ G, O, A, T lên bảng xếp đúng thứ tự.</li>
+      <li>Trên màn hình: mời HS lên chạm các chữ cái; cả lớp đọc to từ khi ghép xong.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">FUN CORNER</span><h3>Slap the board</h3><span class="time">5 phút</span></div>
+    <div class="row" style="justify-content:center;margin-bottom:12px"><button class="play" id="slapGo">Đọc một từ</button><button class="tool" id="slapHide">Ẩn chữ trên thẻ</button></div>
+    <div class="msg" id="slapMsg">Bấm "Đọc một từ", HS nghe rồi chạm thật nhanh vào thẻ đúng.</div>
+    <div class="cards" id="slap">
+      <button class="card" data-k="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt=""><span class="w"><span class="b">g</span>arden</span></button>
+      <button class="card" data-k="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt=""><span class="w"><span class="b">g</span>ate</span></button>
+      <button class="card" data-k="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt=""><span class="w"><span class="b">g</span>irl</span></button>
+      <button class="card" data-k="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt=""><span class="w"><span class="b">g</span>oat</span></button>
+    </div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">EM NHỚ CHƯA?</span><h3>Listen and choose</h3><span class="time">4 phút</span></div>
+    <div class="quiz" id="quiz1" data-set="q1"></div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">VỀ NHÀ</span><h3>Homelink</h3><span class="time">3 phút</span></div>
+    <div class="remember"><b>Hôm nay em học:</b> chữ <b>G g</b>, âm /g/ và 4 từ <b>garden</b> (khu vườn), <b>gate</b> (cái cổng), <b>girl</b> (bạn gái), <b>goat</b> (con dê).</div>
+    <div class="home">
+      <div><h4>Cách 1 · Sách</h4>Đọc âm G/g; chỉ tranh trang 31 và nói garden, gate, girl, goat.</div>
+      <div><h4>Cách 2 · Quanh nhà</h4>Chỉ cổng nhà và nói: gate! Chỉ vườn hoặc chậu cây và nói: garden!</div>
+      <div><h4>Cách 3 · Đố vui</h4>Bắt chước tiếng con dê "meh-eh", người thân đoán: goat!</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ LESSON 2 ============ -->
+<section class="lesson" id="L2" data-hash="tiet2" hidden>
+  <div class="intro">
+    <div>
+      <div class="num">LESSON 2 · TIẾT 2 · SGK TRANG 32</div>
+      <h2>A <span class="b">g</span>oat and a <span class="b">g</span>ate</h2>
+      <p>Học sinh đọc bài chant với chữ G/g, nghe và nhận biết <b>There's a gate. There's a girl.</b>, tô chữ G/g.</p>
+      <ul class="goals"><li>Chant</li><li>Listen and tick</li><li>Trace G g</li></ul>
+    </div>
+    <img loading="lazy" src="assets/unit-7/6e71f548f9.webp" alt="Bạn gái mở cổng, con dê trong vườn hoa">
+  </div>
+
+  <article class="board">
+    <div class="bhead"><span class="num">ÔN TỪ</span><h3>Mystery picture</h3><span class="time">5 phút</span></div>
+    <div class="mystery" id="myst"><img loading="lazy" id="mystImg" alt="Hình bí ẩn"><div class="tiles" id="mystTiles"></div></div>
+    <div class="row" style="justify-content:center;margin-top:14px"><button class="tool" id="mystAll">Mở hết</button><button class="tool" id="mystSay">Nghe đáp án</button><button class="play" id="mystNew">Hình mới</button></div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol><li>HS mở dần ô, đoán tranh và trả lời: <i>garden, gate, girl, goat</i></li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/73b8817489.webp" alt=""><img loading="lazy" src="assets/unit-7/cabdd8731d.webp" alt=""><span class="num">3</span><h3>Listen and chant</h3><span class="time">10 phút</span></div>
+    <div class="row" style="margin-bottom:16px"><button class="play" data-a="chant">Nghe bài chant</button></div>
+    <div class="lyrics" id="chantLyrics">
+      <div class="verse"><span class="b">G</span>, <span class="b">g</span>, <span class="b">g</span>oat.<br><span class="b">G</span>, <span class="b">g</span>, <span class="b">g</span>ate.<br>A <span class="b">g</span>oat and a <span class="b">g</span>ate.</div>
+      <div class="verse"><span class="b">G</span>, <span class="b">g</span>, <span class="b">g</span>irl.<br><span class="b">G</span>, <span class="b">g</span>, <span class="b">g</span>arden.<br>A <span class="b">g</span>irl and a <span class="b">g</span>arden.</div>
+    </div>
+    <p class="vn" style="text-align:left;margin-top:10px">a goat and a gate = một con dê và một cái cổng · a girl and a garden = một bạn gái và một khu vườn</p>
+    <p class="tip">Chant kèm động tác: nói <b>G, g</b> thì vỗ tay 2 cái; nói tên từ thì làm động tác của từ (như ở Tiết 1).</p>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Nghe từng dòng, HS nhắc lại, vừa chant vừa vỗ tay.</li>
+      <li>Chia lớp 2 nhóm: nhóm A chant đoạn 1 (goat, gate), nhóm B chant đoạn 2 (girl, garden).</li>
+      <li>Nếu còn thời gian: nhìn tranh ở Activity 3 và chỉ con dê, cái cổng, bạn gái, khu vườn.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/73b8817489.webp" alt=""><img loading="lazy" src="assets/unit-7/36690f0634.webp" alt=""><span class="num">4</span><h3>Listen and tick</h3><span class="time">7 phút</span></div>
+    <div class="row" style="margin-bottom:16px"><button class="play" data-a="tick">Nghe</button><button class="tool" id="tickCheck">Kiểm tra đáp án</button><button class="tool" id="tickReset">Làm lại</button></div>
+    <div id="tick">
+      <div class="tq" data-ans="b"><span class="n">1.</span>
+        <button class="opt" data-v="a"><img loading="lazy" src="assets/unit-7/f856c3dea9.webp" alt="garden"><span class="lt">a</span><span class="box"></span></button>
+        <button class="opt" data-v="b"><img loading="lazy" src="assets/unit-7/36020513d0.webp" alt="gate"><span class="lt">b</span><span class="box"></span></button></div>
+      <div class="tq" data-ans="a"><span class="n">2.</span>
+        <button class="opt" data-v="a"><img loading="lazy" src="assets/unit-7/43b3daf707.webp" alt="girl"><span class="lt">a</span><span class="box"></span></button>
+        <button class="opt" data-v="b"><img loading="lazy" src="assets/unit-7/9118d20c66.webp" alt="goat"><span class="lt">b</span><span class="box"></span></button></div>
+    </div>
+    <div class="msg" id="tickMsg"></div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>HS nói tên tranh: <i>1a a garden, 1b a gate, 2a a girl, 2b a goat.</i></li>
+      <li>Lời nghe: <i>1. There's a gate. 2. There's a girl.</i> Đáp án: 1b, 2a.</li>
+      <li>Hỏi lại: <i>Did you hear "a garden" or "a gate"?</i></li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/1ae0fa00a9.webp" alt=""><img loading="lazy" src="assets/unit-7/23221e864c.webp" alt=""><span class="num">5</span><h3>Look and trace</h3><span class="time">8 phút</span></div>
+    <div class="trace">
+      <canvas id="cv" width="1100" height="500" aria-label="Bảng tô chữ G g"></canvas>
+      <div class="row">
+        <button class="swatch" style="background:#E0312B" data-c="#E0312B" aria-pressed="true" aria-label="Đỏ"></button>
+        <button class="swatch" style="background:#2F7FC1" data-c="#2F7FC1" aria-pressed="false" aria-label="Xanh dương"></button>
+        <button class="swatch" style="background:#4E9A3A" data-c="#4E9A3A" aria-pressed="false" aria-label="Xanh lá"></button>
+        <button class="tool" id="cvClear">Xoá</button>
+        <button class="tool" id="cvNext">Đổi chữ</button>
+      </div>
+    </div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>G hoa: viết nét cong như chữ C, đến cuối thì kéo một nét ngang nhỏ vào trong.</li>
+      <li>g thường: viết vòng tròn nhỏ như chữ a, rồi kéo nét thẳng xuống dưới dòng kẻ và móc cong sang trái. HS tô trong sách trang 32.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">PHÂN BIỆT CHỮ</span><h3>Find the letter G g</h3><span class="time">5 phút</span></div>
+    <div class="msg" id="huntMsg"></div>
+    <div class="hunt" id="hunt"></div>
+    <div class="row" style="justify-content:center;margin-top:14px"><button class="play" id="huntNew">Ván mới</button></div>
+    <p class="tip">Nhớ: <b>G</b> có nét ngang nhỏ, <b>C</b> thì không; <b>g</b> có đuôi móc cong, <b>q</b> có đuôi thẳng; <b>y</b> có hai nét chéo.</p>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">VỀ NHÀ</span><h3>Homelink</h3></div>
+    <div class="remember"><b>Hôm nay em học:</b> bài chant <b>G, g, goat</b>; nghe hiểu <b>There's a gate. There's a girl.</b>; viết chữ <b>G g</b>.</div>
+    <div class="home">
+      <div><h4>Học thuộc</h4>Bài chant trang 32.</div>
+      <div><h4>Chỉ và nói</h4>Chỉ tranh Listen and tick và nói: garden, gate, girl, goat.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ LESSON 3 ============ -->
+<section class="lesson" id="L3" data-hash="tiet3" hidden>
+  <div class="intro">
+    <div>
+      <div class="num">LESSON 3 · TIẾT 3 · SGK TRANG 33</div>
+      <h2>There's a <span class="b">g</span>arden.</h2>
+      <p>Học sinh dùng mẫu câu <b>There's a ___.</b> để giới thiệu người, vật, con vật và hát bài <b>There's a girl in the garden</b>.</p>
+      <ul class="goals"><li>There's a…</li><li>Yes / No</li><li>Let's sing</li></ul>
+    </div>
+    <img loading="lazy" src="assets/unit-7/eb1a5a0897.webp" alt="Khu vườn nhiều hoa">
+  </div>
+
+  <article class="board">
+    <div class="bhead"><span class="num">KHỞI ĐỘNG</span><h3>Warm-up</h3><span class="time">5 phút</span></div>
+    <div class="home">
+      <div><h4>Cách 1</h4>Cả lớp chant <b>G, g, goat</b> và vỗ tay. <button class="play" data-a="chant" style="margin-top:8px">Bài chant</button></div>
+      <div><h4>Cách 2</h4>Chơi <b>Bang!</b> với 4 từ: garden, gate, girl, goat.</div>
+      <div><h4>Cách 3</h4>HS nói các từ bắt đầu bằng âm /g/: garden, gate, girl, goat…</div>
+    </div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/73b8817489.webp" alt=""><img loading="lazy" src="assets/unit-7/e7ce149960.webp" alt=""><span class="num">6</span><h3>Listen and repeat</h3><span class="time">5 phút</span></div>
+    <div class="row" style="margin-bottom:16px"><button class="play" data-a="s_garden">Nghe câu</button><button class="tool" data-a="talk">Nghe cả bài</button></div>
+    <div class="duo" style="grid-template-columns:1fr">
+      <figure style="max-width:560px;margin:0 auto"><img loading="lazy" src="assets/unit-7/eb1a5a0897.webp" alt="Một khu vườn nhiều hoa"><figcaption>There's a <span class="b">g</span>arden.<span class="vn">Có một khu vườn.</span></figcaption></figure>
+    </div>
+    <div class="remember" style="margin-top:14px"><b>There's a ___.</b> = Có một ___. Dùng để giới thiệu một vật, một con vật hay một người mình nhìn thấy. <b>There's</b> = <b>There is</b>.</div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Chỉ tranh: <i>What is it? It's a garden.</i> Rồi nói <i>There's a garden.</i></li>
+      <li>Nghe và nhắc lại nhiều lần (đồng thanh, cá nhân).</li>
+      <li>Chỉ đồ vật trong lớp: <i>There's a desk. There's a door.</i></li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/6e3bc4b128.webp" alt=""><span class="num">7</span><h3>Let's talk</h3><span class="time">10 phút</span></div>
+    <p style="margin:0 0 14px;color:var(--muted)">Chạm vào một tranh: câu hiện lên và đọc to. HS nói theo.</p>
+    <div class="cards" id="haveCards">
+      <button class="card" data-h="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt=""><span class="lt" style="font-family:var(--display);font-weight:800;background:#F5B828;border-radius:50%;width:30px;height:30px;display:grid;place-items:center">a</span></button>
+      <button class="card" data-h="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt=""><span class="lt" style="font-family:var(--display);font-weight:800;background:#F5B828;border-radius:50%;width:30px;height:30px;display:grid;place-items:center">b</span></button>
+      <button class="card" data-h="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt=""><span class="lt" style="font-family:var(--display);font-weight:800;background:#F5B828;border-radius:50%;width:30px;height:30px;display:grid;place-items:center">c</span></button>
+      <button class="card" data-h="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt=""><span class="lt" style="font-family:var(--display);font-weight:800;background:#F5B828;border-radius:50%;width:30px;height:30px;display:grid;place-items:center">d</span></button>
+    </div>
+    <div class="stage" id="haveStage" style="min-height:140px;margin-top:14px"><div class="say">There's a <span class="fill">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>.</div></div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Chỉ tranh a và nói mẫu: <i>There's a garden.</i> Cả lớp nói đồng thanh, rồi từng em.</li>
+      <li>Làm tương tự với b (gate), c (girl), d (goat).</li>
+      <li>Làm theo cặp: một bạn chỉ tranh, một bạn nói câu.</li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">HIỂU CÂU</span><h3>Complete the sentence</h3><span class="time">5 phút</span></div>
+    <div class="remember"><b>There's a ___.</b> = Có một ___. &nbsp; Ví dụ: <b>There's a goat.</b> = Có một con dê.</div>
+    <div class="quiz" id="quiz2" data-set="q2"></div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><img loading="lazy" src="assets/unit-7/44d62b00f3.webp" alt=""><span class="num">8</span><h3>Let's sing</h3><span class="time">10 phút</span></div>
+    <div class="row" style="margin-bottom:16px"><button class="play" data-a="song">Nghe bài hát</button></div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:center" class="songgrid">
+      <div class="verse" style="line-height:1.6">There's a <span class="b">g</span>irl<br>In the <span class="b">g</span>arden.<br>A <span class="b">g</span>irl in the <span class="b">g</span>arden.<br>A <span class="b">g</span>irl in the <span class="b">g</span>arden.</div>
+      <img loading="lazy" src="assets/unit-7/32ff57f095.webp" alt="Bạn gái và con dê trong vườn" style="width:100%;border-radius:14px">
+      <div class="verse" style="line-height:1.6">There's a <span class="b">g</span>oat<br>In the <span class="b">g</span>arden.<br>A <span class="b">g</span>oat in the <span class="b">g</span>arden.<br>A <span class="b">g</span>oat in the <span class="b">g</span>arden.</div>
+    </div>
+    <p class="vn" style="text-align:left;margin-top:10px">There's a girl in the garden = Có một bạn gái ở trong vườn · There's a goat in the garden = Có một con dê ở trong vườn</p>
+    <div class="remember" style="margin-top:10px"><b>in the garden</b> = ở trong vườn. Thêm <b>in the ___</b> để nói vật đó ở đâu.</div>
+    <details class="gv"><summary>Gợi ý cho giáo viên</summary><ol>
+      <li>Đoạn 1 giới thiệu bạn gái trong vườn; đoạn 2 giới thiệu con dê trong vườn.</li>
+      <li>Nghe và hát từng dòng; hát cả bài, vỗ tay. Chia lớp 2 nhóm, mỗi nhóm hát một đoạn.</li>
+      <li>Lớp khá: đổi lời, vd. <i>There's a dog in the garden.</i></li></ol></details>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">HIỂU CÂU</span><h3>Look and say: Yes or No?</h3><span class="time">5 phút</span></div>
+    <p style="margin:0 0 10px;color:var(--muted)">Nhìn tranh khu vườn. Câu nói đúng thì chọn <b>Yes</b>, sai thì chọn <b>No</b>.</p>
+    <p style="text-align:center;margin:0 0 14px"><img loading="lazy" src="assets/unit-7/8bf7e72643.webp" alt="Tranh khu vườn" style="max-width:min(560px,100%);border-radius:14px"></p>
+    <div class="sit yn2" id="onnear">
+      <div data-ans="yes" data-w="There's a goat."><p><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt="" style="height:90px;max-width:100%;object-fit:contain"></p><p>There's a <span class="b">g</span>oat.</p><div class="hb"><button data-v="yes">Yes</button><button data-v="no">No</button></div><div class="ans"></div></div>
+      <div data-ans="no" data-w="There's a dog."><p><img loading="lazy" src="assets/unit-7/dff18b952a.webp" alt="" style="height:90px;max-width:100%;object-fit:contain"></p><p>There's a dog.</p><div class="hb"><button data-v="yes">Yes</button><button data-v="no">No</button></div><div class="ans"></div></div>
+      <div data-ans="yes" data-w="There's a girl."><p><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt="" style="height:90px;max-width:100%;object-fit:contain"></p><p>There's a <span class="b">g</span>irl.</p><div class="hb"><button data-v="yes">Yes</button><button data-v="no">No</button></div><div class="ans"></div></div>
+      <div data-ans="no" data-w="There's a car."><p><img loading="lazy" src="assets/unit-7/5466d5ebe9.webp" alt="" style="height:90px;max-width:100%;object-fit:contain"></p><p>There's a car.</p><div class="hb"><button data-v="yes">Yes</button><button data-v="no">No</button></div><div class="ans"></div></div>
+      <div data-ans="yes" data-w="There's a gate."><p><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt="" style="height:90px;max-width:100%;object-fit:contain"></p><p>There's a <span class="b">g</span>ate.</p><div class="hb"><button data-v="yes">Yes</button><button data-v="no">No</button></div><div class="ans"></div></div>
+      <div data-ans="no" data-w="There's a cat."><p><img loading="lazy" src="assets/unit-7/29d71e2471.webp" alt="" style="height:90px;max-width:100%;object-fit:contain"></p><p>There's a cat.</p><div class="hb"><button data-v="yes">Yes</button><button data-v="no">No</button></div><div class="ans"></div></div>
+    </div>
+    <div class="row" style="justify-content:center;margin-top:14px"><button class="tool" id="sitReset">Làm lại</button></div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">GAME</span><h3>Lucky eggs</h3><span class="time">5 phút</span></div>
+    <p style="margin:0 0 14px;color:var(--muted)">HS chọn một quả trứng và nói cả câu: <b>There's a ___.</b> Đúng thì nhóm được cộng sao.</p>
+    <div class="eggs" id="eggs"></div>
+    <div class="row" style="justify-content:center;margin-top:12px"><button class="tool" id="eggReset">Xếp lại trứng</button></div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">ÔN TẬP UNIT 7</span><h3>Sơ đồ ghi nhớ</h3><span class="time">4 phút</span></div>
+    <div class="mind">
+      <div class="side">
+        <div class="branch"><h4>Chữ và âm</h4><div class="chips"><button class="chip t" data-a="Gg"><span style="color:#E0312B;font-size:30px">G g</span> /g/</button></div></div>
+        <div class="branch"><h4>Từ vựng</h4><div class="chips"><button class="chip" data-a="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt="">garden</button><button class="chip" data-a="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt="">gate</button><button class="chip" data-a="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt="">girl</button><button class="chip" data-a="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt="">goat</button></div></div>
+      </div>
+      <div class="core" style="background:#BBF7D0"><div><span class="bb">Gg</span>Unit 7<br>In the garden</div></div>
+      <div class="side">
+        <div class="branch"><h4>Mẫu câu</h4><div class="chips"><button class="chip t" data-a="s_garden">There's a ___.</button><button class="chip t" data-a="s_girl">There's a girl.</button></div></div>
+        <div class="branch"><h4>Chant và bài hát</h4><div class="chips"><button class="play" data-a="chant">G, g, goat</button><button class="play" data-a="song">There's a girl</button></div></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">ÔN TẬP UNIT 7</span><h3>Quiz time</h3><span class="time">6 phút</span></div>
+    <div class="quiz" id="quiz3" data-set="q3"></div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">TỰ ĐÁNH GIÁ</span><h3>I can…</h3><span class="time">2 phút</span></div>
+    <div class="self" id="self">
+      <div class="it"><span>Em nói được âm <b>/g/</b> và chữ <b>G g</b>.</span></div>
+      <div class="it"><span>Em nói được 4 từ: <b>garden, gate, girl, goat</b>.</span></div>
+      <div class="it"><span>Em giới thiệu được: <b>There's a …</b></span></div>
+      <div class="it"><span>Em nghe và biết câu nói đúng hay sai với tranh.</span></div>
+      <div class="it"><span>Em đọc được bài chant và hát được bài hát.</span></div>
+    </div>
+  </article>
+
+  <article class="board">
+    <div class="bhead"><span class="num">VỀ NHÀ</span><h3>Homelink</h3></div>
+    <div class="home">
+      <div><h4>Nhìn và nói</h4>Ra sân hoặc nhìn qua cửa sổ, nói với người thân: There's a tree. There's a gate…</div>
+      <div><h4>Hát</h4>Hát bài hát trang 33; thử đổi lời: There's a dog in the garden.</div>
+    </div>
+  </article>
+</section>
+
+<!-- ============ LUYỆN NGHE ============ -->
+<section class="lesson" id="L4" data-hash="luyennghe" hidden>
+  <div class="intro">
+    <div>
+      <div class="num">LUYỆN TẬP · DÙNG TRÊN LỚP HOẶC Ở NHÀ</div>
+      <h2>Nghe, đọc và nhớ từ</h2>
+      <p>6 trò chơi đều có âm thanh. Con bật loa, nghe thật kỹ rồi chọn. Bấm "Nghe lại" bao nhiêu lần cũng được.</p>
+      <nav class="gnav" style="margin-top:14px"><a href="#g1">Lật thẻ</a><a href="#g2">Bóng bay</a><a href="#g3">Đúng hay sai</a><a href="#g4">Nhớ thứ tự</a><a href="#g5">Chữ còn thiếu</a><a href="#g6">Nghe câu</a></nav>
+    </div>
+    <div class="cards" style="grid-template-columns:repeat(2,1fr)">
+      <button class="card" data-a="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt=""><span class="w"><span class="b">g</span>arden</span></button>
+      <button class="card" data-a="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt=""><span class="w"><span class="b">g</span>ate</span></button>
+      <button class="card" data-a="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt=""><span class="w"><span class="b">g</span>irl</span></button>
+      <button class="card" data-a="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt=""><span class="w"><span class="b">g</span>oat</span></button>
+    </div>
+  </div>
+
+  <article class="board" id="g1">
+    <div class="bhead"><span class="num">TRÒ 1 · NHỚ TỪ</span><h3>Lật thẻ tìm cặp</h3></div>
+    <div class="gstat"><span>Lật 2 thẻ: tìm <b>tranh</b> và <b>chữ</b> giống nhau. Mỗi lần lật, con nghe từ đó.</span><span class="st" id="memSt">Lượt: 0</span></div>
+    <div class="mem" id="mem"></div>
+    <div class="feed" id="memFeed"></div>
+    <div class="row" style="justify-content:center"><button class="play" id="memNew">Ván mới</button></div>
+  </article>
+
+  <article class="board" id="g2">
+    <div class="bhead"><span class="num">TRÒ 2 · NGHE VÀ ĐỌC</span><h3>Bắn bóng bay</h3></div>
+    <div class="gstat"><span>Nghe từ, rồi chạm vào quả bóng bay có <b>chữ</b> đúng.</span><span class="st" id="balSt">★ 0/8</span></div>
+    <div class="big-ear"><button class="play" id="balGo">Bắt đầu</button></div>
+    <div class="sky" id="sky"></div>
+    <div class="feed" id="balFeed"></div>
+  </article>
+
+  <article class="board" id="g3">
+    <div class="bhead"><span class="num">TRÒ 3 · NGHE HIỂU</span><h3>Đúng hay sai?</h3></div>
+    <div class="gstat"><span>Nhìn tranh và nghe. Đúng tên tranh thì chọn <b>Yes</b>, sai thì chọn <b>No</b>.</span><span class="st" id="ynSt">★ 0/8</span></div>
+    <div class="yn"><div class="pic" id="ynPic"></div>
+      <div class="big-ear" style="margin:0"><button class="play" id="ynEar">Nghe</button></div>
+      <div class="ynb"><button class="y" data-v="1">Yes</button><button class="n" data-v="0">No</button></div></div>
+    <div class="feed" id="ynFeed"></div>
+  </article>
+
+  <article class="board" id="g4">
+    <div class="bhead"><span class="num">TRÒ 4 · NHỚ KHI NGHE</span><h3>Nghe và xếp thứ tự</h3></div>
+    <div class="gstat"><span>Nghe hết các từ, rồi chạm tranh <b>theo đúng thứ tự</b> con nghe được.</span><span class="st" id="ordSt">Cấp 1 · 2 từ</span></div>
+    <div class="big-ear"><button class="play" id="ordEar">Nghe</button></div>
+    <div class="slots" id="slots"></div>
+    <div class="cards" id="ordPick">
+      <button class="card" data-o="garden"><img loading="lazy" src="assets/unit-7/2e66674562.webp" alt="garden"></button>
+      <button class="card" data-o="gate"><img loading="lazy" src="assets/unit-7/d9461fcb14.webp" alt="gate"></button>
+      <button class="card" data-o="girl"><img loading="lazy" src="assets/unit-7/a5a9e1eab2.webp" alt="girl"></button>
+      <button class="card" data-o="goat"><img loading="lazy" src="assets/unit-7/ebb7a9debb.webp" alt="goat"></button>
+    </div>
+    <div class="feed" id="ordFeed"></div>
+    <div class="row" style="justify-content:center"><button class="tool" id="ordClear">Xếp lại</button></div>
+  </article>
+
+  <article class="board" id="g5">
+    <div class="bhead"><span class="num">TRÒ 5 · NGHE VÀ VIẾT</span><h3>Chữ còn thiếu</h3></div>
+    <div class="gstat"><span>Nghe từ, chọn chữ cái đúng để điền vào chỗ trống.</span><span class="st" id="mlSt">★ 0/6</span></div>
+    <div class="ml"><div class="pic" id="mlPic"></div>
+      <div><div class="word" id="mlWord"></div><div class="lbtn" id="mlBtn"></div>
+      <div style="margin-top:12px"><button class="play" id="mlEar">Nghe lại</button></div></div></div>
+    <div class="feed" id="mlFeed"></div>
+  </article>
+
+  <article class="board" id="g6">
+    <div class="bhead"><span class="num">TRÒ 6 · NGHE CÂU</span><h3>Nghe câu, chọn tranh</h3></div>
+    <div class="gstat"><span>Nghe câu, rồi chọn tranh đúng.</span><span class="st" id="scSt">★ 0/6</span></div>
+    <div class="big-ear"><button class="play" id="scEar">Nghe</button></div>
+    <div class="qopts" id="scOpts">
+      <button class="opt" data-v="s_gate"><img loading="lazy" src="assets/unit-7/36020513d0.webp" alt="There's a gate"></button>
+      <button class="opt" data-v="s_girl"><img loading="lazy" src="assets/unit-7/43b3daf707.webp" alt="There's a girl"></button>
+      <button class="opt" data-v="s_garden"><img loading="lazy" src="assets/unit-7/eb1a5a0897.webp" alt="There's a garden"></button>
+    </div>
+    <div class="feed" id="scFeed"></div>
+    <p class="vn" style="text-align:left">There's a gate = Có một cái cổng · There's a girl = Có một bạn gái · There's a garden = Có một khu vườn</p>
+  </article>
+</section>
+</main>
+
+<audio id="au" preload="none"></audio>
+
+<script>
+const AU={Gg:"assets/unit-7/Gg.mp3",garden:"assets/unit-7/garden.mp3",gate:"assets/unit-7/gate.mp3",girl:"assets/unit-7/girl.mp3",goat:"assets/unit-7/goat.mp3",chant:"assets/unit-7/chant.mp3",tick:"assets/unit-7/tick.mp3",talk:"assets/unit-7/talk.mp3",song:"assets/unit-7/song.mp3",lr:"assets/unit-7/lr.mp3",s_garden:"assets/unit-7/s_garden.mp3",s_gate:"assets/unit-7/s_gate.mp3",s_girl:"assets/unit-7/s_girl.mp3",u6_bell:"assets/unit-7/u6_bell.mp3",u6_pen:"assets/unit-7/u6_pen.mp3",u6_pencil:"assets/unit-7/u6_pencil.mp3",u6_red:"assets/unit-7/u6_red.mp3"};
+const IMG={garden:"assets/unit-7/2e66674562.webp",gate:"assets/unit-7/d9461fcb14.webp",girl:"assets/unit-7/a5a9e1eab2.webp",goat:"assets/unit-7/ebb7a9debb.webp"};
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const au=$('#au'); let curBtn=null, seq=[], curKey=null, gapT=null, SLOW=false;
+function applySpd(){au.playbackRate=SLOW?0.8:1;au.preservesPitch=true;au.mozPreservesPitch=true;au.webkitPreservesPitch=true}
+au.addEventListener('loadedmetadata',applySpd);
+function stopAll(){au.pause();clearTimeout(gapT);seq=[];if(curBtn)curBtn.classList.remove('on');curBtn=null}
+function play(key,btn){
+  if(btn&&btn===curBtn){stopAll();return}
+  stopAll(); if(!AU[key])return;
+  curKey=key; au.src=AU[key]; au.currentTime=0; applySpd(); au.play().catch(()=>{});
+  if(btn&&btn.classList.contains('play')){curBtn=btn;btn.classList.add('on')}
+}
+au.addEventListener('ended',()=>{ if(seq.length){const k=seq.shift();clearTimeout(gapT);gapT=setTimeout(()=>{curKey=k;au.src=AU[k];applySpd();au.play().catch(()=>{})},SLOW?900:600);return} if(curBtn)curBtn.classList.remove('on');curBtn=null});
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-seq]'); if(b){ if(b===curBtn){stopAll();return} stopAll(); const s=b.dataset.seq.split(','); play(s.shift(),b); seq=s; return }
+  const a=e.target.closest('[data-a]'); if(a){ play(a.dataset.a,a); if(a.classList.contains('hidew'))a.classList.remove('hidew'); }
+});
+
+/* tabs */
+function show(n){ $$('.lesson').forEach((s,i)=>s.hidden=(i+1!==n)); $$('.tab').forEach(t=>t.setAttribute('aria-selected',t.dataset.l==n)); stopAll(); try{localStorage.setItem('u7tab',n)}catch(e){} window.scrollTo(0,0)}
+$$('.tab').forEach(t=>t.onclick=()=>show(+t.dataset.l));
+let start=1; const h=location.hash.replace('#',''); const m=$$('.lesson').findIndex(s=>s.dataset.hash===h);
+if(m>=0)start=m+1; else {try{start=+localStorage.getItem('u7tab')||1}catch(e){}}
+show(start);
+
+/* scoreboard */
+const sc=[0,0,0,0]; try{const s=JSON.parse(localStorage.getItem('u7score'));if(Array.isArray(s))s.forEach((v,i)=>sc[i]=v)}catch(e){}
+function renderScore(){ $('#score').innerHTML=sc.map((v,i)=>`<span class="grp">Nhóm ${i+1}<b>${v}</b><button data-g="${i}" data-d="-1" aria-label="Bớt sao nhóm ${i+1}">−</button><button data-g="${i}" data-d="1" aria-label="Thêm sao nhóm ${i+1}">★</button></span>`).join(''); try{localStorage.setItem('u7score',JSON.stringify(sc))}catch(e){} }
+$('#score').onclick=e=>{const b=e.target.closest('button');if(!b)return;sc[b.dataset.g]=Math.max(0,sc[b.dataset.g]+ +b.dataset.d);renderScore()};
+renderScore();
+
+try{SLOW=localStorage.getItem('u7slow')==='1'}catch(e){}
+function setSpd(v){SLOW=v;$('#spd').setAttribute('aria-pressed',v);$('#spd').textContent=v?'Nghe chậm: bật':'Nghe chậm';applySpd();try{localStorage.setItem('u7slow',v?'1':'0')}catch(e){}}
+$('#spd').onclick=()=>setSpd(!SLOW);setSpd(SLOW);
+$('#fs').onclick=()=>{ try{ document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen().catch(()=>{}) }catch(e){} };
+
+/* point and say */
+$('#hideSpots').onclick=e=>{const on=e.target.dataset.on!=='1';e.target.dataset.on=on?'1':'0';e.target.textContent=on?'Hiện chữ':'Ẩn chữ để HS tự nói';$$('#pointScene .spot').forEach(s=>{s.textContent=on?'?':s.dataset.w;s.classList.toggle('hid',on)})};
+$('#pointScene').addEventListener('click',e=>{const s=e.target.closest('.spot');if(s&&s.classList.contains('hid')){s.textContent=s.dataset.w;s.classList.remove('hid')}});
+
+/* slap the board */
+let target=null;
+$('#slapGo').onclick=e=>{const ks=['garden','gate','girl','goat'];let k;do{k=ks[Math.floor(Math.random()*4)]}while(k===target);target=k;$$('#slap .card').forEach(c=>c.classList.remove('ok','no'));$('#slapMsg').textContent='Nghe kỹ… chạm vào thẻ đúng!';play(k)};
+$('#slapHide').onclick=e=>{$$('#slap .card').forEach(c=>c.classList.toggle('hidew'));e.target.textContent=$('#slap .card').classList.contains('hidew')?'Hiện chữ trên thẻ':'Ẩn chữ trên thẻ'};
+$('#slap').onclick=e=>{const c=e.target.closest('.card');if(!c)return;if(!target){play(c.dataset.k);return}
+  c.classList.remove('ok','no');void c.offsetWidth;
+  if(c.dataset.k===target){c.classList.add('ok');$('#slapMsg').textContent='Đúng rồi! Well done!';target=null}else{c.classList.add('no');$('#slapMsg').textContent='Chưa đúng, thử lại nhé!'}};
+
+/* chant: highlight verse by time */
+const cl=$$('#chantLyrics .verse');
+au.addEventListener('timeupdate',()=>{ if(curKey!=='chant'||curBtn==null){cl.forEach(v=>v.classList.remove('now'));return}
+  const p=au.currentTime/(au.duration||56); const i=Math.min(cl.length-1,Math.floor(p*cl.length)); cl.forEach((v,j)=>v.classList.toggle('now',j===i)) });
+au.addEventListener('pause',()=>cl.forEach(v=>v.classList.remove('now')));
+
+/* listen and tick */
+$('#tick').onclick=e=>{const o=e.target.closest('.opt');if(!o)return;const q=o.parentElement;$$('.opt',q).forEach(x=>x.classList.remove('sel','right','wrong'));o.classList.add('sel');$('#tickMsg').textContent=''};
+$('#tickCheck').onclick=()=>{let ok=0;$$('#tick .tq').forEach(q=>{$$('.opt',q).forEach(o=>{o.classList.remove('right','wrong');if(o.dataset.v===q.dataset.ans)o.classList.add('right');else if(o.classList.contains('sel'))o.classList.add('wrong')});const s=$('.opt.sel',q);if(s&&s.dataset.v===q.dataset.ans)ok++});$('#tickMsg').textContent=`Đúng ${ok}/2 · Đáp án: 1b (There's a gate), 2a (There's a girl)`};
+$('#tickReset').onclick=()=>{$$('#tick .opt').forEach(o=>o.classList.remove('sel','right','wrong'));$('#tickMsg').textContent=''};
+
+/* trace */
+const cv=$('#cv'),cx=cv.getContext('2d');let color='#E0312B',drawing=false,mode=0;const MODES=['G g','G','g'];
+function guide(){cx.clearRect(0,0,cv.width,cv.height);cx.save();cx.strokeStyle='#CFDCE3';cx.lineWidth=2;[110,250,390].forEach(y=>{cx.beginPath();cx.moveTo(30,y);cx.lineTo(1070,y);cx.stroke()});
+  cx.font='800 330px "Baloo 2", "Comic Sans MS", sans-serif';cx.textAlign='center';cx.textBaseline='alphabetic';cx.setLineDash([10,12]);cx.lineWidth=5;cx.strokeStyle='#8BA3B1';cx.strokeText(MODES[mode],550,395);cx.restore()}
+function pos(e){const r=cv.getBoundingClientRect();return[(e.clientX-r.left)*cv.width/r.width,(e.clientY-r.top)*cv.height/r.height]}
+cv.addEventListener('pointerdown',e=>{drawing=true;cv.setPointerCapture(e.pointerId);const[x,y]=pos(e);cx.beginPath();cx.moveTo(x,y);cx.lineTo(x+.1,y);cx.strokeStyle=color;cx.lineWidth=22;cx.lineCap='round';cx.lineJoin='round';cx.setLineDash([]);cx.stroke()});
+cv.addEventListener('pointermove',e=>{if(!drawing)return;const[x,y]=pos(e);cx.lineTo(x,y);cx.stroke()});
+['pointerup','pointercancel'].forEach(t=>cv.addEventListener(t,()=>drawing=false));
+$$('.swatch').forEach(s=>s.onclick=()=>{color=s.dataset.c;$$('.swatch').forEach(x=>x.setAttribute('aria-pressed',x===s))});
+$('#cvClear').onclick=guide; $('#cvNext').onclick=()=>{mode=(mode+1)%3;guide()};
+(document.fonts?document.fonts.ready:Promise.resolve()).then(guide); guide();
+
+/* tts for sentences without a recording */
+function say(t){try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='en-US';u.rate=.8;const v=speechSynthesis.getVoices().find(v=>/^en(-|_)(US|GB)/i.test(v.lang));if(v)u.voice=v;speechSynthesis.speak(u)}catch(e){}}
+function sayMy(k){stopAll();if(AU['s_'+k])play('s_'+k);else say("There's a "+k+'.')}
+const VNW={garden:'một khu vườn',gate:'một cái cổng',girl:'một bạn gái',goat:'một con dê'};
+/* let's talk */
+$('#haveCards').onclick=e=>{const c=e.target.closest('[data-h]');if(!c)return;const k=c.dataset.h;$$('#haveCards .card').forEach(x=>x.classList.toggle('sel',x===c));
+  $('#haveStage').innerHTML=`<div class="say">There's a ${k.replace(/([Gg])/,'<span class="b">$1</span>')}.<span class="vn" style="font-size:18px">Có ${VNW[k]}.</span></div>`;sayMy(k)};
+/* bang! */
+let bgBag=[],bgK=null;
+function bgNew(){bgBag=shuf(['garden','gate','girl','goat','garden','gate','girl','goat','BANG','BANG']);bgK=null;$('#bgStage').innerHTML='<div><span class="box">🎁</span><div class="say" style="margin-top:8px">Hộp có 10 thẻ</div></div>'}
+$('#bgGo').onclick=()=>{const st=$('#bgStage');if(!bgBag.length){st.innerHTML='<div><div class="say">Hết thẻ rồi! Bấm "Làm hộp mới".</div></div>';return}
+  stopAll();st.classList.remove('shake');void st.offsetWidth;st.classList.add('shake');st.innerHTML='<div><span class="box">🎁</span></div>';
+  setTimeout(()=>{const k=bgBag.pop();bgK=k==='BANG'?null:k;st.classList.remove('shake');
+    st.innerHTML=k==='BANG'?`<div><div class="bang">BANG!</div><div class="say" style="margin-top:8px">Ôi! Nhóm mất hết thẻ đang giữ. (Còn ${bgBag.length} thẻ)</div></div>`:`<div><img loading="lazy" src="${IMG[k]}" alt=""><div class="say">Đây là gì? (Còn ${bgBag.length} thẻ)</div></div>`},800)};
+$('#bgSay').onclick=()=>{if(!bgK)return;$('#bgStage .say').innerHTML=bgK.replace(/([Gg])/,'<span class="b">$1</span>');play(bgK)};
+$('#bgNew').onclick=()=>bgNew();
+/* word builder (matching game) */
+let wbK=null,wbPick=[];
+function wbNew(){let k;do{k=['garden','gate','girl','goat'][Math.floor(Math.random()*4)]}while(k===wbK);wbK=k;wbPick=[];
+  const L=k.split('').map((c,i)=>({c,i})).sort(()=>Math.random()-.5);
+  $('#wbTiles').innerHTML=L.map(o=>`<button data-i="${o.i}">${o.c}</button>`).join('');wbSlots();$('#wbMsg').textContent='Nghe từ, rồi chạm các chữ cái theo đúng thứ tự.';play(k)}
+function wbSlots(){$('#wbSlots').innerHTML=wbK.split('').map((_,i)=>`<span>${wbPick[i]!==undefined?wbK[wbPick[i]]:''}</span>`).join('')}
+$('#wbTiles').onclick=e=>{const b=e.target.closest('button');if(!b||b.classList.contains('used'))return;b.classList.add('used');wbPick.push(+b.dataset.i);wbSlots();
+  if(wbPick.length===wbK.length){const w=wbPick.map(i=>wbK[i]).join('');if(w===wbK){$('#wbMsg').innerHTML='Đúng rồi! <b>'+wbK+'</b>';play(wbK)}else{$('#wbMsg').textContent='Chưa đúng, thử lại nhé!';setTimeout(()=>{wbPick=[];$$('#wbTiles button').forEach(x=>x.classList.remove('used'));wbSlots()},1200)}}};
+$('#wbSay').onclick=()=>{if(wbK)play(wbK)};
+$('#wbNew').onclick=()=>wbNew();
+$('#wbShow').onclick=()=>{wbPick=wbK.split('').map((_,i)=>i);$$('#wbTiles button').forEach(x=>x.classList.add('used'));wbSlots();play(wbK)};
+/* yes or no */
+$('#onnear').onclick=e=>{const b=e.target.closest('.hb button');if(!b)return;const card=b.closest('[data-ans]');const ok=b.dataset.v===card.dataset.ans;
+  $$('.hb button',card).forEach(x=>x.classList.remove('ok','no'));void b.offsetWidth;b.classList.add(ok?'ok':'no');
+  $('.ans',card).textContent=ok?(card.dataset.ans==='yes'?'Đúng! Trong tranh có.':'Đúng! Trong tranh không có.'):'Nhìn lại tranh nhé!';if(ok){const m=card.dataset.w.match(/a (\w+)\./);const k=m&&m[1];if(card.dataset.ans==='yes'&&AU['s_'+k])play('s_'+k);else say(card.dataset.ans==='yes'?card.dataset.w:'No. '+card.dataset.w.replace("There's a","There isn't a"))}};
+$('#sitReset').onclick=()=>$$('#onnear [data-ans]').forEach(c=>{$$('button',c).forEach(x=>x.classList.remove('ok','no'));$('.ans',c).textContent=''});
+
+/* lucky eggs */
+function eggs(){const ks=['garden','gate','girl','goat','garden','gate','girl','goat'].sort(()=>Math.random()-.5);
+  $('#eggs').innerHTML=ks.map((k,i)=>`<button class="egg" data-k="${k}" aria-label="Quả trứng ${i+1}"><span class="in"><img loading="lazy" src="${IMG[k]}" alt="${k}"></span><span class="shell">${i+1}</span></button>`).join('')}
+$('#eggs').onclick=e=>{const g=e.target.closest('.egg');if(!g)return;if(g.classList.contains('open'))sayMy(g.dataset.k);else g.classList.add('open')};
+$('#eggReset').onclick=eggs; eggs();
+
+/* ===== ghi nhớ & hiểu bài ===== */
+const VN={Gg:'chữ G, âm /g/',garden:'khu vườn',gate:'cái cổng',girl:'bạn gái',goat:'con dê',u6_bell:'cái chuông',u6_pen:'bút mực',u6_pencil:'bút chì',u6_red:'màu đỏ'};
+$$('.card').forEach(c=>{const k=c.dataset.a||c.dataset.k;if(VN[k]&&!c.querySelector('.vn')){const s=document.createElement('span');s.className='vn';s.textContent=VN[k];c.querySelector('.w').after(s)}});
+let vnOn=false;try{vnOn=localStorage.getItem('u7vn')==='1'}catch(e){}
+function setVn(v){vnOn=v;document.body.classList.toggle('vn-on',v);$('#vnBtn').setAttribute('aria-pressed',v);$('#vnBtn').textContent=v?'Ẩn nghĩa tiếng Việt':'Hiện nghĩa tiếng Việt';try{localStorage.setItem('u7vn',v?'1':'0')}catch(e){}}
+$('#vnBtn').onclick=()=>setVn(!vnOn); setVn(vnOn);
+const W4=['garden','gate','girl','goat'], rnd=a=>a[Math.floor(Math.random()*a.length)], shuf=a=>a.map(v=>[Math.random(),v]).sort((x,y)=>x[0]-y[0]).map(x=>x[1]);
+
+/* teacher says */
+let tsT=null,tsLast=null;
+$('#tsGo').onclick=()=>{clearTimeout(tsT);let k;do{k=rnd(W4)}while(k===tsLast);tsLast=k;
+  $('#tsStage').innerHTML='<div class="say">Teacher says…</div>';play(k);
+  tsT=setTimeout(()=>{$('#tsStage').innerHTML=`<div><img loading="lazy" src="${IMG[k]}" alt=""><div class="say">${k.replace(/([Gg])/,'<span class="b">$1</span>')}</div></div>`},3000)};
+
+/* mystery picture */
+let mk=null;
+function mystNew(){let k;do{k=rnd(W4)}while(k===mk);mk=k;$('#mystImg').src=IMG[k];$('#mystTiles').innerHTML=Array.from({length:9},(_,i)=>`<button aria-label="Ô ${i+1}">${i+1}</button>`).join('')}
+$('#mystTiles').onclick=e=>{const b=e.target.closest('button');if(b)b.classList.add('off')};
+$('#mystAll').onclick=()=>$$('#mystTiles button').forEach(b=>b.classList.add('off'));
+$('#mystSay').onclick=()=>{$$('#mystTiles button').forEach(b=>b.classList.add('off'));play(mk)};
+$('#mystNew').onclick=mystNew; mystNew();
+
+/* letter hunt */
+function hunt(){const good=['G','g','G','g','g','G','g'],bad=['q','C','c','y','q','O','a','p','j'];
+  const L=shuf(good.concat(shuf(bad).slice(0,5)));
+  $('#hunt').innerHTML=L.map(c=>`<button data-ok="${c==='G'||c==='g'?1:0}">${c}</button>`).join('');
+  $('#huntMsg').innerHTML='Chạm vào tất cả chữ <span class="b">G</span> và <span class="b">g</span>.'}
+$('#hunt').onclick=e=>{const b=e.target.closest('button');if(!b||b.classList.contains('ok'))return;
+  if(b.dataset.ok==='1'){b.classList.add('ok');play('Gg');const left=$$('#hunt button[data-ok="1"]:not(.ok)').length;$('#huntMsg').textContent=left?`Giỏi lắm! Còn ${left} chữ nữa.`:'Tìm đủ rồi! Excellent!'}
+  else{b.classList.remove('no');void b.offsetWidth;b.classList.add('no');$('#huntMsg').textContent=`Chữ "${b.textContent}" không phải chữ G g. Chữ G có nét ngang nhỏ, chữ g có đuôi móc cong nhé!`}};
+$('#huntNew').onclick=hunt; hunt();
+
+/* quiz engine */
+const wordHTML=w=>w.replace(/([Gg])/,'<span class="b" style="color:#E0312B">$1</span>');
+const QSETS={
+  q1:()=>shuf(W4.concat([rnd(W4)])).map(a=>({t:'listen',a})),
+  q2:()=>shuf(W4).map(a=>({t:'my',a})),
+  q3:()=>[{t:'listen',a:rnd(W4)},{t:'pic',a:rnd(W4)},{t:'letter'},{t:'my',a:rnd(W4)},{t:'listen',a:rnd(W4)},{t:'pic',a:rnd(W4)},{t:'my',a:rnd(W4)},{t:'meaning',a:rnd(W4)}]
+};
+function quiz(box){let Q=[],i=0,res=[];
+  function start(){Q=QSETS[box.dataset.set]();i=0;res=[];draw()}
+  function prog(){return `<div class="qprog">${Q.map((_,j)=>`<i class="${res[j]===true?'ok':res[j]===false?'no':''} ${j===i?'cur':''}"></i>`).join('')}</div>`}
+  function draw(){const q=Q[i];let head='',opts=[],ans;
+    if(q.t==='listen'){head=`<div class="qq">Nghe và chọn tranh đúng</div><div class="row" style="justify-content:center"><button class="play" data-qa="${q.a}">Nghe lại</button></div>`;opts=shuf(W4).map(w=>({v:w,h:`<img loading="lazy" src="${IMG[w]}" alt="">`}));ans=q.a;}
+    if(q.t==='pic'){head=`<div class="qq">Đây là gì?</div><img loading="lazy" class="qimg" src="${IMG[q.a]}" alt="">`;opts=shuf(W4).map(w=>({v:w,h:`<span class="tx">${wordHTML(w)}</span>`}));ans=q.a;}
+    if(q.t==='letter'){head=`<div class="qq">Chữ nào là chữ <span class="b">g</span>?</div>`;opts=shuf(['g','q','y']).map(w=>({v:w,h:`<span class="tx" style="font-size:64px">${w}</span>`}));ans='g';}
+    if(q.t==='my'){head=`<div class="qq">There's a ___.</div><img loading="lazy" class="qimg" src="${IMG[q.a]}" alt="">`;opts=shuf(W4).map(w=>({v:w,h:`<span class="tx">${wordHTML(w)}</span>`}));ans=q.a;}
+    if(q.t==='meaning'){const m={garden:'khu vườn',gate:'cái cổng',girl:'bạn gái',goat:'con dê'};head=`<div class="qq">"${m[q.a]}" tiếng Anh là gì?</div>`;opts=shuf(W4).map(w=>({v:w,h:`<img loading="lazy" src="${IMG[w]}" alt=""><span class="tx">${wordHTML(w)}</span>`}));ans=q.a;}
+    box.innerHTML=`<div class="qtop"><b>Câu ${i+1}/${Q.length}</b>${prog()}</div>${head}<div class="qopts">${opts.map(o=>`<button class="opt" data-v="${o.v.replace(/"/g,'&quot;')}">${o.h}</button>`).join('')}</div><div class="msg"></div>`;
+    box.dataset.ans=ans; if(q.t==='listen'&&box._auto)setTimeout(()=>play(q.a),250);}
+  function end(){const n=res.filter(Boolean).length,s=Math.round(n/Q.length*5);
+    box.innerHTML=`<div class="qtop"><b>Hoàn thành</b>${prog()}</div><div class="qend"><div class="stars">${'★'.repeat(s)}<span style="opacity:.25">${'★'.repeat(5-s)}</span></div>Đúng ${n}/${Q.length} câu. ${n===Q.length?'Excellent!':n>=Q.length/2?'Well done!':'Cố lên nhé!'}</div><div class="row" style="justify-content:center"><button class="play" data-qr="1">Chơi lại</button></div>`}
+  box.addEventListener('click',()=>{box._auto=true},true);
+  box.addEventListener('click',e=>{const qa=e.target.closest('[data-qa]');if(qa){play(qa.dataset.qa);return}
+    if(e.target.closest('[data-qr]')){start();return}
+    const o=e.target.closest('.opt');if(!o||box.dataset.lock==='1')return;const ok=o.dataset.v===box.dataset.ans;
+    if(res[i]===undefined)res[i]=ok;
+    if(ok){o.classList.add('right');$('.msg',box).textContent='Đúng rồi!';box.dataset.lock='1';
+      if(W4.includes(box.dataset.ans))setTimeout(()=>{const q=Q[i-1]||{};q.t==='my'?sayMy(box.dataset.ans):play(box.dataset.ans)},200);
+      setTimeout(()=>{box.dataset.lock='0';i++;i<Q.length?draw():end()},1400)}
+    else{o.classList.add('wrong');$('.msg',box).textContent='Chưa đúng, thử lại nhé!'}});
+  start()}
+$$('.quiz').forEach(quiz);
+
+/* self assessment */
+$$('#self .it').forEach((it,k)=>{const f=document.createElement('div');f.className='faces';f.innerHTML=['Chưa được','Gần được','Được rồi!'].map((l,v)=>`<button data-v="${v}" aria-pressed="false">${l}</button>`).join('');it.appendChild(f);
+  f.onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('button',f).forEach(x=>x.setAttribute('aria-pressed',x===b))}});
+
+/* ===== luyện nghe ===== */
+const WH=w=>w.replace(/([Gg])/,'<span style="color:#E0312B">$1</span>');
+const cheer=()=>rnd(['Giỏi lắm!','Well done!','Excellent!','Đúng rồi!','Very good!']);
+/* G1 memory */
+let memA=null,memLock=false,memT=0,memDone=0;
+function memNew(){memA=null;memLock=false;memT=0;memDone=0;$('#memSt').textContent='Lượt: 0';$('#memFeed').textContent='';
+  const items=shuf(W4.flatMap(w=>[{k:w,h:`<img loading="lazy" src="${IMG[w]}" alt="">`},{k:w,h:`<span>${WH(w)}</span>`}]));
+  $('#mem').innerHTML=items.map((o,i)=>`<button class="mc" data-k="${o.k}" aria-label="Thẻ ${i+1}"><span class="fl"><span class="fr">?</span><span class="bk">${o.h}</span></span></button>`).join('')}
+$('#mem').onclick=e=>{const c=e.target.closest('.mc');if(!c||memLock||c.classList.contains('up')||c.classList.contains('done'))return;
+  c.classList.add('up');play(c.dataset.k);
+  if(!memA){memA=c;return}
+  memT++;$('#memSt').textContent='Lượt: '+memT;
+  if(memA.dataset.k===c.dataset.k){const a=memA;memA=null;setTimeout(()=>{a.classList.add('done');c.classList.add('done');memDone++;
+      $('#memFeed').textContent=memDone===4?`Tìm đủ 4 cặp sau ${memT} lượt! Excellent!`:cheer()},500)}
+  else{memLock=true;const a=memA;memA=null;setTimeout(()=>{a.classList.remove('up');c.classList.remove('up');memLock=false},1300)}};
+$('#memNew').onclick=memNew; memNew();
+
+/* G2 balloons (JS-driven movement so it works even when the computer turns animations off) */
+const BC=['#FF8A80','#FFD54F','#81D4FA','#A5D6A7','#CE93D8'];
+const RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+let balK=null,balN=0,balOk=0,balTimers=[],balls=[],balRAF=null,balLast=0;
+function balStop(){balTimers.forEach(clearTimeout);balTimers=[];cancelAnimationFrame(balRAF);balRAF=null;balls=[];$('#sky').innerHTML=''}
+function balTick(ts){const H=$('#sky').clientHeight;const dt=balLast?Math.min(64,ts-balLast):16;balLast=ts;
+  balls.forEach(o=>{if(o.pop)return;o.y+=o.v*dt;if(o.y>H+150)o.y=0;o.el.style.transform=`translateY(${-o.y}px)`});
+  balRAF=requestAnimationFrame(balTick)}
+function balRound(){balStop();if(balN>=8){$('#balFeed').textContent=`Xong! Con bắn trúng ${balOk}/8 quả. ${balOk>=6?'Excellent!':'Chơi lại nhé!'}`;$('#balGo').textContent='Chơi lại';$('#balGo').disabled=false;return}
+  balN++;balK=rnd(W4);play(balK);$('#balFeed').textContent='Nghe kỹ… từ nào? (bấm vào đây để nghe lại)';
+  const words=shuf(W4.concat(W4)),sky=$('#sky'),w=sky.clientWidth||600,H=sky.clientHeight||380,lanes=Math.max(3,Math.floor(w/130)),bw=w<500?96:120;
+  words.forEach((k,i)=>{const make=()=>{const b=document.createElement('button');b.className='bal';b.dataset.k=k;b.setAttribute('aria-label',k);
+      const lane=(i*3)%lanes;b.style.left=Math.min(w-bw-4,lane*(w/lanes)+Math.random()*Math.max(0,w/lanes-bw))+'px';
+      b.innerHTML=`<span style="background:${rnd(BC)}"><em style="font-style:normal">${WH(k)}</em></span>`;sky.appendChild(b);
+      const o={el:b,k,y:0,v:(H+150)/((8+Math.random()*3)*1000)};
+      if(RM){o.y=150+(Math.floor(i/lanes)%2)*Math.min(140,H-150)+Math.random()*20;o.v=0}
+      o.el.style.transform=`translateY(${-o.y}px)`;balls.push(o)};
+    if(RM)make();else balTimers.push(setTimeout(make,i*900))});
+  balLast=0;if(!RM)balRAF=requestAnimationFrame(balTick);
+  balTimers.push(setTimeout(()=>{if(balK){$('#balFeed').textContent='Hết giờ! Từ đó là: '+balK;play(balK);balK=null;balTimers.push(setTimeout(balRound,1800))}},20000))}
+$('#balGo').onclick=()=>{balN=0;balOk=0;$('#balSt').textContent='★ 0/8';$('#balGo').disabled=true;$('#balGo').textContent='Đang chơi…';balRound()};
+$('#sky').onclick=e=>{const b=e.target.closest('.bal');if(!b||!balK)return;
+  if(b.dataset.k===balK){const o=balls.find(x=>x.el===b);if(o)o.pop=true;b.style.transition='transform .3s, opacity .3s';b.style.transform+=' scale(1.6)';b.style.opacity='0';setTimeout(()=>b.remove(),320);
+    balOk++;$('#balSt').textContent=`★ ${balOk}/8`;$('#balFeed').textContent=cheer();balK=null;balTimers.push(setTimeout(balRound,1200))}
+  else{$('#balFeed').textContent='Chưa đúng! Nghe lại nhé.';play(balK)}};
+$('#balFeed').onclick=()=>{if(balK)play(balK)};
+$$('.tab').forEach(tb=>tb.addEventListener('click',()=>{if(balK||balRAF){balStop();balK=null;$('#balGo').disabled=false;$('#balGo').textContent='Bắt đầu';$('#balFeed').textContent=''}}));
+
+/* G3 yes/no */
+let ynPic=null,ynSay=null,ynN=0,ynOk=0,ynLock=false;
+function ynRound(){if(ynN>=8){$('#ynPic').innerHTML=`<div class="qend"><div class="stars">${'★'.repeat(Math.round(ynOk/8*5))}</div>${ynOk}/8</div>`;$('#ynFeed').innerHTML='<button class="play" id="ynAgain">Chơi lại</button>';return}
+  ynPic=rnd(W4);ynSay=Math.random()<.5?ynPic:rnd(W4.filter(w=>w!==ynPic));ynLock=false;
+  $('#ynPic').innerHTML=`<img loading="lazy" src="${IMG[ynPic]}" alt="">`;$('#ynFeed').textContent='';$$('.ynb button').forEach(b=>b.classList.remove('ok','no'))}
+$('#ynEar').onclick=()=>{ if(ynN>=8)return; play(ynSay)};
+$('.ynb').onclick=e=>{const b=e.target.closest('button');if(!b||ynLock||ynN>=8)return;const right=(ynPic===ynSay)===(b.dataset.v==='1');
+  if(right){ynLock=true;b.classList.add('ok');ynOk++;ynN++;$('#ynSt').textContent=`★ ${ynOk}/8`;$('#ynFeed').innerHTML=`${cheer()} Tranh này là <b>${WH(ynPic)}</b>.`;setTimeout(()=>play(ynPic),300);setTimeout(ynRound,2200)}
+  else{b.classList.remove('no');void b.offsetWidth;b.classList.add('no');$('#ynFeed').textContent='Nghe lại thật kỹ nhé!';ynN++;ynLock=true;
+    setTimeout(()=>{$('#ynFeed').innerHTML=`Con nghe thấy <b>${WH(ynSay)}</b>, tranh là <b>${WH(ynPic)}</b>.`;play(ynSay)},400);setTimeout(ynRound,2800)}};
+document.addEventListener('click',e=>{if(e.target.id==='ynAgain'){ynN=0;ynOk=0;$('#ynSt').textContent='★ 0/8';ynRound()}});
+ynRound();
+
+/* G4 order */
+let ordLv=2,ordSeq=[],ordPick=[],ordWin=0;
+function ordNew(){ordSeq=Array.from({length:ordLv},()=>rnd(W4));ordPick=[];$('#ordSt').textContent=`Cấp ${ordLv-1} · ${ordLv} từ`;slots();$('#ordFeed').textContent='Bấm "Nghe" để bắt đầu.'}
+function slots(){$('#slots').innerHTML=ordSeq.map((_,i)=>`<div class="slot"><b>${i+1}</b>${ordPick[i]?`<img loading="lazy" src="${IMG[ordPick[i]]}" alt="">`:''}</div>`).join('')}
+$('#ordEar').onclick=()=>{stopAll();ordPick=[];slots();const s=[...ordSeq];curKey=s[0];au.src=AU[s.shift()];au.play().catch(()=>{});seq=s.flatMap(x=>[x]);$('#ordFeed').textContent='Nghe kỹ thứ tự nhé…'};
+$('#ordPick').onclick=e=>{const c=e.target.closest('[data-o]');if(!c||ordPick.length>=ordSeq.length)return;ordPick.push(c.dataset.o);slots();
+  if(ordPick.length===ordSeq.length){if(ordPick.every((k,i)=>k===ordSeq[i])){ordWin++;$('#ordFeed').textContent=cheer()+(ordLv<4?' Lên cấp khó hơn!':'');if(ordLv<4)ordLv++;setTimeout(ordNew,1600)}
+    else{$('#ordFeed').innerHTML='Chưa đúng. Thứ tự là: '+ordSeq.map(WH).join(' → ')+'. Bấm Nghe để thử lại.';ordPick=[];setTimeout(slots,1800)}}};
+$('#ordClear').onclick=()=>{ordPick=[];slots()};
+ordNew();
+
+/* G5 missing letter */
+let mlK=null,mlN=0,mlOk=0,mlTry=0;
+function mlRound(){if(mlN>=6){$('#mlWord').innerHTML=`<span style="color:#C98A00">${'★'.repeat(Math.round(mlOk/6*5))}</span>`;$('#mlBtn').innerHTML='';$('#mlFeed').innerHTML=`Đúng ${mlOk}/6 · <button class="play" id="mlAgain">Chơi lại</button>`;return}
+  mlK=rnd(W4.filter(w=>w!==mlK));mlTry=0;const first=mlK[0];
+  $('#mlPic').innerHTML=`<img loading="lazy" src="${IMG[mlK]}" alt="">`;const ai=mlK.indexOf('g');$('#mlWord').innerHTML=`${mlK.slice(0,ai)}<span class="gap">&nbsp;</span>${mlK.slice(ai+1)}`;
+  const opts=['g','c','d'];$('#mlBtn').innerHTML=shuf(opts).map(l=>`<button>${l}</button>`).join('');$('#mlFeed').textContent='';}
+$('#mlEar').onclick=()=>{if(mlK&&mlN<6)play(mlK)};
+$('#mlBtn').onclick=e=>{const b=e.target.closest('button');if(!b)return;
+  if(b.textContent==='g'){const ai=mlK.indexOf('g');$('#mlWord').innerHTML=`${mlK.slice(0,ai)}<span class="gap">g</span>${mlK.slice(ai+1)}`;if(!mlTry)mlOk++;mlN++;$('#mlSt').textContent=`★ ${mlOk}/6`;$('#mlFeed').textContent=cheer();play(mlK);$('#mlBtn').innerHTML='';setTimeout(mlRound,1800)}
+  else{mlTry++;b.classList.remove('no');void b.offsetWidth;b.classList.add('no');$('#mlFeed').textContent='Nghe lại: chữ còn thiếu đọc là /g/ nhé!';play(mlK)}};
+document.addEventListener('click',e=>{if(e.target.id==='mlAgain'){mlN=0;mlOk=0;$('#mlSt').textContent='★ 0/6';mlRound()}});
+mlRound();
+
+/* G6 sentences */
+let scK=null,scN=0,scOk=0,scTry=0;const SC=['s_gate','s_girl','s_garden'];const posay=k=>play(k);
+function scRound(){$$('#scOpts .opt').forEach(o=>o.classList.remove('right','wrong'));
+  if(scN>=6){$('#scFeed').innerHTML=`Xong! Đúng ${scOk}/6 · <button class="play" id="scAgain">Chơi lại</button>`;scK=null;return}
+  scK=rnd(SC.filter(s=>s!==scK));scTry=0;$('#scFeed').textContent='Bấm "Nghe" rồi chọn tranh.'}
+$('#scEar').onclick=()=>{if(scK)posay(scK)};
+$('#scOpts').onclick=e=>{const o=e.target.closest('.opt');if(!o||!scK)return;
+  if(o.dataset.v===scK){o.classList.add('right');if(!scTry)scOk++;scN++;$('#scSt').textContent=`★ ${scOk}/6`;$('#scFeed').textContent=cheer();posay(scK);const k=scK;scK=null;setTimeout(()=>{scK=k;scRound()},1900)}
+  else{scTry++;o.classList.add('wrong');$('#scFeed').textContent='Chưa đúng, nghe lại nhé!'}};
+document.addEventListener('click',e=>{if(e.target.id==='scAgain'){scN=0;scOk=0;$('#scSt').textContent='★ 0/6';scRound()}});
+scRound();
+$$('.gnav a').forEach(a=>a.onclick=e=>{e.preventDefault();const el=$(a.getAttribute('href'));if(el)window.scrollTo({top:el.getBoundingClientRect().top+scrollY-90,behavior:'smooth'})});
+wbNew();bgNew();
+
+$('#moreBtn').onclick=()=>{const o=$('.bar').classList.toggle('open');$('#moreBtn').setAttribute('aria-expanded',o)};
+</script>
+
+<script>if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');</script>
+</body></html>

@@ -1,6 +1,14 @@
 <!doctype html>
 <html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Unit 1 · In the school playground</title>
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#16324A">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Tiếng Anh 1">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Be+Vietnam+Pro:wght@400;500;600&display=swap">
@@ -1055,4 +1063,5 @@ $$('.gnav a').forEach(a=>a.onclick=e=>{e.preventDefault();const el=$(a.getAttrib
 $('#moreBtn').onclick=()=>{const o=$('.bar').classList.toggle('open');$('#moreBtn').setAttribute('aria-expanded',o)};
 </script>
 
+<script>if('serviceWorker' in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js');</script>
 </body></html>
